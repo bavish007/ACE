@@ -1,4 +1,4 @@
-# 🛒 Shopping Cart Web Application with Session Management
+# 7. 🛒  Session Management in Shopping Cart Web Application
 
 ![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white)
 ![Servlet](https://img.shields.io/badge/Servlet-FF6B35?style=for-the-badge&logo=java&logoColor=white)
@@ -6,8 +6,6 @@
 ![Apache Tomcat](https://img.shields.io/badge/Apache%20Tomcat-F8DC75?style=for-the-badge&logo=apachetomcat&logoColor=black)
 
 ---
-
-## 📋 PROGRAM 7 – Session Management in Shopping Cart Web Application
 
 ### 🎯 AIM
 To implement session tracking in a shopping cart web application using HTTP Sessions in Java Servlets.
@@ -168,16 +166,3 @@ See LICENSE file for details.
 
 ---
 
-## 👨‍💻 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
----
-
-
-<div align="center">
-
-
-⭐ **Star this repository if it helped you!** ⭐
-
-</div>
