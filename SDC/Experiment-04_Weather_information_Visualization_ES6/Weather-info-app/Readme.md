@@ -60,6 +60,7 @@ Open `index.html` in a web browser.
 ## 🔧 API Configuration
 
 ### 1. Get an API key from OpenWeatherMap
+
 ### 2. Replace YOUR_API_KEY in script.js with your actual API key:
 ```javascript
 const apiKey = 'YOUR_API_KEY';
@@ -76,14 +77,13 @@ This project is licensed under the **MIT License**.
 
 ## 👨‍💻 Author
 
-**M. Bavish Reddy**
+**[M. Bavish Reddy](https://github.com/bavish007)**
 
 Feel free to contribute or suggest improvements!
 
 ---
 
 <div align="center">
-
 
 *Built with 🚀 ES6+ features and Chart.js visualization*
 
