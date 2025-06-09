@@ -15,8 +15,6 @@ Each folder contains code and files for a specific experiment, named accordingly
 
 ---
 
-## 🎯 **What You'll Learn**
-
 ### Frontend Development
 - 📱 Responsive Web Design
 - ⚡ JavaScript & ES6
