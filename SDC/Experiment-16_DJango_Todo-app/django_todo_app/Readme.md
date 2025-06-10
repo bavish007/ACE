@@ -16,7 +16,6 @@ To develop a TODO list application backend using Django, allowing users to add, 
 
 This experiment demonstrates how to build a server-rendered TODO application using Django. The app allows users to manage tasks—such as adding new tasks and viewing task lists—using Django's powerful Model-View-Template (MVT) architecture. It showcases key Django concepts like models, views, templates, forms, and URL routing.
 
-### ✨ **What You'll Learn:**
 - 🏗️ **MVT Architecture** - Model-View-Template pattern
 - 🗄️ **Django ORM** - Database operations and models
 - 📄 **Template Rendering** - Dynamic HTML generation
