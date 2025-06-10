@@ -16,7 +16,6 @@ To develop a student management system backend using Django, allowing users to r
 
 This experiment demonstrates how to build a basic web application using **Django**. The project implements user authentication (register and login), and basic navigation through pages like Home, About, and Contact.
 
-### ✨ **What You'll Learn:**
 - 🔐 **User Authentication** (Register & Login)
 - 🌐 **URL Routing** and navigation
 - 📄 **Template Rendering** with Django templates
