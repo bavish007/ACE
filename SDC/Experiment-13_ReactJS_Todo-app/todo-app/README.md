@@ -15,7 +15,7 @@ To develop a TODO list application frontend using React, allowing users to add, 
 
 This experiment demonstrates how to build a single-page TODO application using **React.js**. The app allows users to manage their daily tasks in a dynamic and interactive way. 
 
-### ✨ **What You'll Learn:**
+### ✨ **Key Features:**
 - 🔄 **State Management** using `useState`
 - 🧩 **Component-based Architecture**
 - 📝 **Basic Form Handling**
