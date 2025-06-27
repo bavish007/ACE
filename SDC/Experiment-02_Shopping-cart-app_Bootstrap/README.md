@@ -1,171 +1,170 @@
 # 🛒 404 Collective – Shopping Cart App (Bootstrap Edition)
 
-## 📖 Objective
-This project delivers a visually polished, fully responsive e-commerce website for the fictional 404 Collective brand, built using HTML5, CSS3, and Bootstrap 5. The goal was to master Bootstrap's grid and component system, accelerate UI development, and create a seamless, modern shopping experience. The experiment focuses on rapid prototyping, mobile-first design, and leveraging Bootstrap utilities for professional results.
+<div align="center">
+  
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![Bootstrap](https://img.shields.io/badge/Bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white)
+
+</div>
 
 ---
 
-## 🛠️ Technologies Used
-- **HTML5** (semantic markup)
-- **CSS3** (custom styles)
-- **Bootstrap 5** (layout, components, utilities)
-- **VS Code Live Server** (for local development)
+## 🎯 Project Overview
 
----
+A **visually polished, fully responsive e-commerce website** for the fictional 404 Collective brand, built using HTML5, CSS3, and Bootstrap 5. This project demonstrates mastery of Bootstrap's grid and component system while maintaining custom cyberpunk-inspired branding.
 
-## 📂 Folder Structure
-```text
-Experiment-02_Shopping-cart-app_Bootstrap/
-├── about.html
-├── cart.html
-├── confirm-order.html
-├── contact.html
-├── images/
-│   ├── 404-Collective-logo.png
-│   ├── inferno-10-pro.jpg
-│   ├── inferno-air.jpg
-│   ├── inferno-cable.jpg
-│   ├── inferno-case.jpg
-│   ├── inferno-charger.jpg
-│   ├── inferno-earbuds.jpg
-│   ├── inferno-pad.jpg
-│   └── inferno-watch.jpg
-├── index.html
-├── login.html
-├── news.html
-├── order-history.html
-├── output/
-│   ├── Cart.png
-│   ├── Home.png
-│   ├── Login.png
-│   ├── News & Updates.png
-│   ├── Order History.png
-│   ├── Payment.png
-│   ├── Products.png
-│   ├── Register.png
-│   └── Support Center.png
-├── payment.html
-├── products.html
-├── profile.html
-├── public/
-│   ├── css/
-│   │   └── paybycreditcard.css
-│   └── html/
-│       └── paybycreditcard.html
-├── register.html
-├── support.html
-└── README.md
-```
-
----
-
-## ⚙️ Setup & Usage Instructions
-
-### 1. Clone or Download
-```sh
-# Using git
-git clone <repo-url>
-# Or download ZIP and extract
-```
-
-### 2. Navigate to Project Directory
-```sh
-cd Experiment-02_Shopping-cart-app_Bootstrap
-```
-
-### 3. Open in Browser
-- **Windows**
-  ```sh
-  # Windows
-  start index.html
-  ```
-- **macOS**
-  ```sh
-  # macOS
-  open index.html
-  ```
-- **Linux**
-  ```sh
-  # Linux
-  xdg-open index.html
-  ```
-- Or use **VS Code Live Server** for live preview (recommended)
+**Key Achievement:** Rapid UI development with Bootstrap while preserving unique design identity through custom CSS integration.
 
 ---
 
 ## ✨ Key Features
-- Modern, cyberpunk-inspired UI powered by Bootstrap 5
-- Fully responsive layout for mobile, tablet, and desktop
-- Product catalog with 8 Inferno Series devices
-- Shopping cart with quantity, price summary, and checkout flow
-- User authentication pages (login/register, static)
-- Order history and payment confirmation pages
-- Support center with FAQ and contact form
-- News & updates section with visually distinct articles
-- Custom CSS for branding and unique visual touches
-- Accessibility: semantic HTML, focus states, and ARIA roles
+
+🎨 **Cyberpunk UI** – Modern Bootstrap components with custom dark theme styling  
+📱 **Mobile-First Design** – Fully responsive across all device sizes  
+🛍️ **Complete E-Commerce Flow** – From product catalog to payment confirmation  
+🛒 **Interactive Shopping Cart** – Quantity controls and price calculations  
+🔐 **User Authentication** – Login/register with Bootstrap form validation  
+📊 **Order Management** – Order history and tracking functionality  
+🆘 **Support System** – FAQ and contact center  
 
 ---
 
-## 📸 Output Analysis
+## 📸 Live Preview
 
-### 🏠 Home Page
 ![Home Page](output/Home.png)
-*Striking landing page with a hero section, featured products, and Bootstrap-powered navigation. Sets the visual identity for the site.*
+*Bootstrap-powered landing page with hero section and featured products*
 
-### 🛒 Cart Page
-![Cart Page](output/Cart.png)
-*Shopping cart interface displaying selected products, quantity controls, and a clear price breakdown. Designed for easy review and checkout.*
+![Shopping Cart](output/Cart.png)
+*Clean cart interface with quantity controls and price breakdown*
 
-### 🔑 Login Page
-![Login Page](output/Login.png)
-*User login form with Bootstrap form controls, validation, and a clean, focused layout for quick access.*
-
-### 📰 News & Updates
-![News & Updates](output/News_&_Updates.png)
-*News section highlighting product launches and company updates, each styled for clarity and engagement.*
-
-### 🛍️ Products Catalog
 ![Products Catalog](output/Products.png)
-*Responsive product grid showcasing all Inferno Series devices with images, descriptions, and quick add-to-cart options.*
+*Responsive product grid showcasing all Inferno Series devices*
 
-### 📝 Register Page
-![Register Page](output/Register.png)
-*User registration form with Bootstrap validation, clear input fields, and a welcoming design for new users.*
+<details>
+<summary>🖼️ View More Screenshots</summary>
 
-### 📦 Order History
-![Order History](output/Order_History.png)
-*Order history page listing past purchases, order statuses, and quick access to details for returning customers.*
+![Login Page](output/Login.png)
+*User authentication with Bootstrap form controls*
 
-### 💳 Payment Page
 ![Payment Page](output/Payment.png)
-*Payment interface with form fields for credit card details, styled for trust and ease of use.*
+*Secure payment interface with credit card form*
 
-### 🆘 Support Center
+![Order History](output/Order_History.png)
+*Order tracking and purchase history*
+
+![News & Updates](output/News&Updates.png)
+*Company news and product announcements*
+
+![Register Page](output/Register.png)
+*User registration with form validation*
+
 ![Support Center](output/Support_Center.png)
-*Support center with FAQ, contact form, and quick links to help resources, all organized for user confidence.*
+*FAQ and customer support resources*
+
+</details>
 
 ---
 
-## 🎓 Learning Outcomes
-- Mastered Bootstrap 5 grid, utilities, and components
-- Built a fully responsive, mobile-first e-commerce UI
-- Practiced integrating custom CSS with Bootstrap for unique branding
-- Improved rapid prototyping and layout skills
-- Enhanced understanding of accessibility and semantic HTML
-- Learned to structure multi-page static web apps efficiently
+## 📁 Project Structure
+
+```
+Experiment-02_Shopping-cart-app_Bootstrap/
+├── index.html              # Landing page
+├── products.html           # Product catalog
+├── cart.html               # Shopping cart
+├── login.html              # User authentication
+├── register.html           # User registration
+├── payment.html            # Payment processing
+├── confirm-order.html      # Order confirmation
+├── order-history.html      # Purchase history
+├── profile.html            # User profile
+├── news.html               # News & updates
+├── support.html            # Support center
+├── about.html              # About page
+├── contact.html            # Contact form
+├── images/                 # Product images & assets
+│   ├── 404-Collective-logo.png
+│   ├── inferno-10-pro.jpg
+│   └── ... (8 product images)
+├── public/                 # Additional assets
+│   ├── css/
+│   │   └── paybycreditcard.css
+│   └── html/
+│       └── paybycreditcard.html
+└── output/                 # Screenshots
+```
 
 ---
 
-## 🧠 My Journey & Reflections
-This project was my introduction to Bootstrap as a rapid UI development tool. I was amazed at how quickly I could build complex layouts and responsive components compared to writing raw CSS. The biggest challenge was balancing Bootstrap's default look with my own cyberpunk-inspired branding—custom CSS and utility overrides were key. I learned the value of prototyping, the power of Bootstrap's grid, and how to keep accessibility in mind even when using frameworks. This experiment gave me the confidence to use Bootstrap for future projects and taught me how to blend frameworks with personal design vision.
+## 🚀 Quick Start
+
+### Prerequisites
+- Modern web browser
+- Text editor (VS Code recommended)
+
+### Setup Instructions
+
+1. **Clone the repository**
+   ```bash
+   git clone <repo-url>
+   cd Experiment-02_Shopping-cart-app_Bootstrap
+   ```
+
+2. **Launch the project**
+   
+   **Direct Browser:**
+   ```bash
+   # Windows
+   start index.html
+   
+   # macOS
+   open index.html
+   
+   # Linux
+   xdg-open index.html
+   ```
+
+   **VS Code Live Server (Recommended):**
+   ```bash
+   code .
+   # Install Live Server extension
+   # Right-click index.html → "Open with Live Server"
+   ```
+
+3. **Explore the features**
+   - Navigate through the complete e-commerce flow
+   - Test responsive design across different screen sizes
+   - Experience Bootstrap components with custom styling
 
 ---
 
-## 🔗 Connect with Me
-- **GitHub:** [https://github.com/bavish007](https://github.com/bavish007)
-- **LinkedIn:** [https://www.linkedin.com/in/bavishreddymuske]
+## 🧠 Technical Highlights
+
+This project showcases advanced Bootstrap integration techniques:
+
+- **Bootstrap 5 Mastery**: Leveraged grid system, utilities, and components for rapid development
+- **Custom Theme Integration**: Successfully blended Bootstrap defaults with cyberpunk aesthetics
+- **Mobile-First Approach**: Utilized Bootstrap's responsive breakpoints for seamless device compatibility
+- **Component Optimization**: Customized Bootstrap components while maintaining accessibility standards
+
+The biggest challenge was balancing Bootstrap's default styling with unique branding requirements—achieved through strategic utility overrides and custom CSS integration.
 
 ---
 
-© 2025 M. Bavish Reddy. All rights reserved. 
+## 📄 License
+
+This project is licensed under the MIT License.
+
+---
+
+<div align="center">
+
+[![GitHub](https://img.shields.io/badge/-GitHub-181717?style=for-the-badge&logo=github)](https://github.com/bavish007)
+[![LinkedIn](https://img.shields.io/badge/-LinkedIn-0A66C2?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/bavishreddymuske)
+
+*Developed by M. Bavish Reddy*
+
+© 2025 M. Bavish Reddy. All rights reserved.
+
+</div>
