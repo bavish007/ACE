@@ -1,151 +1,154 @@
-# 🛒 404 Collective – Shopping Cart App (CSS Edition)
+# 🛒 404 Collective – E-Commerce Shopping Cart
 
-## 📖 Objective
-A visually immersive, fully responsive e-commerce website for the fictional 404 Collective brand, built using only HTML5 and CSS3. This project was designed to master advanced CSS techniques, create a seamless shopping experience, and deliver a modern, cyberpunk-inspired UI—without any JavaScript or backend logic. The focus was on accessibility, mobile-first design, and pushing the boundaries of what's possible with pure CSS.
+<div align="center">
+  
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![Responsive](https://img.shields.io/badge/Responsive-Design-00D084?style=for-the-badge&logo=css3&logoColor=white)
 
----
-
-## 🛠️ Technologies Used
-- **HTML5** (semantic markup)
-- **CSS3** (Flexbox, Grid, gradients, animations)
-- **Responsive Design** (media queries)
-- **VS Code Live Server** (for local development)
+</div>
 
 ---
 
-## 📂 Folder Structure
-```text
-Experiment-01_Shopping-cart-app_CSS/
-├── Experiment-01_Shopping-cart-app_CSS/
-│   ├── about.html
-│   ├── cart.html
-│   ├── contact.html
-│   ├── images/
-│   │   ├── 404-Collective-logo.png
-│   │   ├── future-tech-preview.jpg
-│   │   ├── inferno-10-pro.jpg
-│   │   ├── inferno-air.jpg
-│   │   ├── inferno-cable.jpg
-│   │   ├── inferno-case.jpg
-│   │   ├── inferno-charger.jpg
-│   │   ├── inferno-earbuds.jpg
-│   │   ├── inferno-pad.jpg
-│   │   └── inferno-watch.jpg
-│   ├── index.html
-│   ├── login.html
-│   ├── news.html
-│   ├── products.html
-│   ├── profile.html
-│   ├── register.html
-│   ├── styles.css
-│   └── support.html
-├── output/
-│   ├── Cart.png
-│   ├── Home.png
-│   ├── Login.png
-│   ├── News.png
-│   ├── Products.png
-│   └── Support.png
-└── README.md
-```
+## 🎯 Project Overview
 
----
+A **cyberpunk-inspired e-commerce platform** built with pure HTML5 and CSS3. This project demonstrates advanced CSS techniques to create a fully functional shopping experience without JavaScript, featuring dark aesthetics, responsive design, and accessibility-first principles.
 
-## ⚙️ Setup & Usage Instructions
-
-### 1. Clone or Download
-```sh
-# Using git
-git clone <repo-url>
-# Or download ZIP and extract
-```
-
-### 2. Navigate to Project Directory
-```sh
-cd Experiment-01_Shopping-cart-app_CSS/Experiment-01_Shopping-cart-app_CSS
-```
-
-### 3. Open in Browser
-- **Windows**
-  ```sh
-  # Windows
-  start index.html
-  ```
-- **macOS**
-  ```sh
-  # macOS
-  open index.html
-  ```
-- **Linux**
-  ```sh
-  # Linux
-  xdg-open index.html
-  ```
-- Or use **VS Code Live Server** for live preview (recommended)
+**Key Achievement:** Complete shopping cart functionality using only CSS pseudo-selectors and clever styling techniques.
 
 ---
 
 ## ✨ Key Features
-- Cyberpunk-inspired dark UI with neon accents
-- Fully responsive (mobile, tablet, desktop)
-- Product catalog: 8 Inferno Series devices
-- Shopping cart UI with quantity and price summary
-- User login and registration forms (static)
-- Profile page with user info and order history
-- Support & contact forms, FAQ section
-- News & updates section
-- Pure HTML & CSS (no JavaScript)
-- Accessibility: focus states, semantic HTML
+
+🎨 **Cyberpunk UI** – Dark theme with neon accents and glassmorphism effects  
+📱 **Mobile Responsive** – Seamless experience across all devices  
+🛍️ **Product Catalog** – 8 Inferno Series tech devices  
+🛒 **CSS-Only Cart** – Functional shopping cart without JavaScript  
+🔐 **User Authentication** – Login/register pages with form validation styling  
+♿ **Accessibility** – Semantic HTML and proper focus states  
 
 ---
 
-## 📸 Output Analysis
+## 📸 Live Preview
 
-### 🏠 Home Page
 ![Home Page](output/Home.png)
-*Landing page with a bold hero section, featured Inferno devices, and a neon-accented navigation bar. Sets the cyberpunk tone for the entire site.*
+*Cyberpunk-inspired landing page with hero section and product showcase*
 
-### 🛒 Cart Page
-![Cart Page](output/Cart.png)
-*Shopping cart interface showing selected products, quantity controls, price breakdown, and checkout options—all styled for clarity and ease of use.*
+![Shopping Cart](output/Cart.png)
+*Functional cart interface with quantity controls and price calculations*
 
-### 🔑 Login Page
+![Product Catalog](output/Products.png)
+*Responsive grid layout showcasing Inferno Series devices*
+
+<details>
+<summary>🖼️ View More Screenshots</summary>
+
 ![Login Page](output/Login.png)
-*User login form with email/password fields, a "Remember me" option, and a link to registration. Clean, focused, and accessible design.*
+*Clean authentication interface with focus states*
 
-### 📰 News & Updates
-![News & Updates](output/News.png)
-*News section featuring product launches, company updates, and future tech previews. Each article is visually distinct and easy to scan.*
+![News Section](output/News.png)
+*Product announcements and company updates*
 
-### 🛍️ Products Catalog
-![Products Catalog](output/Products.png)
-*Full product catalog displaying all Inferno Series devices with images and descriptions in a responsive grid layout.*
-
-### 🆘 Support Center
 ![Support Center](output/Support.png)
-*Support page with FAQ, support form, and quick access to help resources. Designed for clarity and user confidence.*
+*FAQ and customer support interface*
+
+</details>
 
 ---
 
-## 🎓 Learning Outcomes
-- Mastered advanced CSS3 (Grid, Flexbox, gradients, animations, glassmorphism)
-- Built a fully responsive, mobile-first layout from scratch
-- Practiced semantic HTML5 for accessibility and SEO
-- Designed a consistent, modern UI system without JavaScript
-- Improved workflow with VS Code Live Server
-- Understood the importance of user-centric design and clear navigation
+## 📁 Project Structure
+
+```
+404-Collective-Shopping-Cart/
+├── index.html              # Landing page
+├── products.html           # Product catalog
+├── cart.html               # Shopping cart
+├── login.html              # User authentication
+├── register.html           # User registration
+├── profile.html            # User profile
+├── news.html               # News & updates
+├── support.html            # Customer support
+├── about.html              # About page
+├── contact.html            # Contact form
+├── styles.css              # Main stylesheet
+├── images/                 # Product images & assets
+│   ├── 404-Collective-logo.png
+│   ├── inferno-10-pro.jpg
+│   ├── inferno-air.jpg
+│   └── ... (8 product images)
+└── output/                 # Screenshots
+```
 
 ---
 
-## 🧠 My Journey & Reflections
-This project was a deep dive into the world of modern CSS and responsive web design. Starting from a blank canvas, I iterated through multiple design ideas before settling on a cyberpunk-inspired theme that felt both bold and user-friendly. The biggest challenge was achieving interactivity (like hover effects, focus states, and responsive layouts) purely with CSS—no JavaScript at all! I learned to leverage Flexbox and Grid for complex layouts, and used gradients and shadows to create depth and visual interest. Testing across devices taught me the value of mobile-first design. Overall, this experiment pushed my front-end skills and gave me a new appreciation for what's possible with just HTML and CSS.
+## 🚀 Quick Start
+
+### Prerequisites
+- Modern web browser
+- Text editor (VS Code recommended)
+
+### Setup Instructions
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/bavish007/404-collective-shopping-cart.git
+   cd 404-collective-shopping-cart
+   ```
+
+2. **Launch the project**
+   
+   **Direct Browser:**
+   ```bash
+   # Windows
+   start index.html
+   
+   # macOS
+   open index.html
+   
+   # Linux
+   xdg-open index.html
+   ```
+
+   **VS Code Live Server:**
+   ```bash
+   code .
+   # Install Live Server extension
+   # Right-click index.html → "Open with Live Server"
+   ```
+
+3. **Explore the features**
+   - Navigate through different sections
+   - Test responsive design by resizing browser
+   - Interact with CSS-only cart functionality
 
 ---
 
-## 🔗 Connect with Me
-- **GitHub:** [https://github.com/bavish007](https://github.com/bavish007)
-- **LinkedIn:** [https://www.linkedin.com/in/bavishreddymuske](https://www.linkedin.com/in/bavishreddymuske)
+## 🧠 Technical Highlights
+
+This project pushed the boundaries of what's possible with pure CSS:
+
+- **CSS-Only Interactivity**: Used `:checked` pseudo-selectors and label associations to simulate JavaScript behavior
+- **Advanced Layouts**: Mastered CSS Grid for complex page structures and Flexbox for component alignment
+- **Mobile-First Approach**: Built responsive layouts that work seamlessly across all devices
+- **Accessibility Focus**: Implemented semantic HTML with proper focus states and screen reader compatibility
+
+The most challenging aspect was creating a functional shopping cart interface using only CSS—achieving this required creative problem-solving and deep understanding of CSS fundamentals.
 
 ---
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+---
+
+<div align="center">
+
+[![GitHub](https://img.shields.io/badge/-GitHub-181717?style=for-the-badge&logo=github)](https://github.com/bavish007)
+[![LinkedIn](https://img.shields.io/badge/-LinkedIn-0A66C2?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/bavishreddymuske)
+
+*Developed  by M. Bavish Reddy*
 
 © 2025 M. Bavish Reddy. All rights reserved.
+
+</div>
