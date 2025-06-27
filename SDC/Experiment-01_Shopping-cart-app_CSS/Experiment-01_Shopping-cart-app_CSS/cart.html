@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cart - 404 Collective</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="images/404-Collective-logo.png" alt="404 Collective Logo" class="logo-img">
+      <div class="logo-text">
+        <h1>404 Collective</h1>
+        <p class="tagline">what you're never supposed to find, but definitely want to..</p>
+      </div>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="news.html">News</a>
+      <a href="support.html">Support</a>
+      <a href="login.html">Login</a>
+      <a href="cart.html">Cart</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h2>Your Cart</h2>
+      <p>Review your selected Inferno devices.</p>
+      <a href="index.html" class="cta-button">Back to Home</a>
+    </section>
+
+    <section class="products">
+      <div class="product-card" style="max-width: 1000px; margin: 0 auto;">
+        <h3>Shopping Cart</h3>
+        <div style="overflow-x: auto;">
+          <table class="cart-table">
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th style="text-align: center;">Quantity</th>
+                <th style="text-align: right;">Price</th>
+                <th style="text-align: right;">Total</th>
+                <th style="text-align: center;">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div class="cart-item">
+                    <img src="images/inferno-10-pro.jpg" alt="Inferno 10 Pro">
+                    <div>
+                      <h4 style="margin: 0; color: #fff;">Inferno 10 Pro</h4>
+                      <p style="margin: 0; color: #ccc; font-size: 0.9rem;">Next-gen gaming smartphone</p>
+                    </div>
+                  </div>
+                </td>
+                <td style="text-align: center;">
+                  <input type="number" value="1" min="1" style="width: 60px; padding: 0.5rem; background: #333; border: 1px solid #555; color: #fff; border-radius: 4px;">
+                </td>
+                <td style="text-align: right; color: #fff;">$1,299.99</td>
+                <td style="text-align: right; color: #fff;">$1,299.99</td>
+                <td style="text-align: center;">
+                  <button style="background: #ff0055; border: none; color: #fff; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer; font-size: 0.8rem;">Remove</button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="cart-item">
+                    <img src="images/inferno-watch.jpg" alt="Inferno Watch">
+                    <div>
+                      <h4 style="margin: 0; color: #fff;">Inferno Watch</h4>
+                      <p style="margin: 0; color: #ccc; font-size: 0.9rem;">Style meets functionality</p>
+                    </div>
+                  </div>
+                </td>
+                <td style="text-align: center;">
+                  <input type="number" value="2" min="1" style="width: 60px; padding: 0.5rem; background: #333; border: 1px solid #555; color: #fff; border-radius: 4px;">
+                </td>
+                <td style="text-align: right; color: #fff;">$299.99</td>
+                <td style="text-align: right; color: #fff;">$599.98</td>
+                <td style="text-align: center;">
+                  <button style="background: #ff0055; border: none; color: #fff; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer; font-size: 0.8rem;">Remove</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+        <div class="cart-summary">
+          <div class="cart-summary-row">
+            <span>Subtotal:</span>
+            <span>$1,899.97</span>
+          </div>
+          <div class="cart-summary-row">
+            <span>Shipping:</span>
+            <span>$29.99</span>
+          </div>
+          <div class="cart-summary-row">
+            <span>Tax:</span>
+            <span>$152.00</span>
+          </div>
+          <div class="cart-summary-row total">
+            <span>Total:</span>
+            <span>$2,081.96</span>
+          </div>
+        </div>
+        
+        <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 2rem;">
+          <a href="products.html" class="cta-button secondary">Continue Shopping</a>
+          <a href="#" class="cta-button">Proceed to Checkout</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 404 Collective. All rights reserved.</p>
+  </footer>
+</body>
+</html> 

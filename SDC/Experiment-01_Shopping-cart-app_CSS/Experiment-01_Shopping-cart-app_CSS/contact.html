@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact - 404 Collective</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="images/404-Collective-logo.png" alt="404 Collective Logo" class="logo-img">
+      <div class="logo-text">
+        <h1>404 Collective</h1>
+        <p class="tagline">what you're never supposed to find, but definitely want to..</p>
+      </div>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="news.html">News</a>
+      <a href="support.html">Support</a>
+      <a href="login.html">Login</a>
+      <a href="cart.html">Cart</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h2>Get in Touch</h2>
+      <p>We'd love to hear from you. Send us a message!</p>
+      <a href="index.html" class="cta-button">Back to Home</a>
+    </section>
+
+    <section class="products">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; max-width: 1000px; margin: 0 auto;">
+        <div class="product-card">
+          <h3>Contact Information</h3>
+          <div style="margin-bottom: 2rem;">
+            <h4 style="color: #fff; margin-bottom: 1rem;">Reach Out</h4>
+            <div style="margin-bottom: 1rem;">
+              <p style="color: #ccc; margin: 0.5rem 0;"><strong style="color: #fff;">Email:</strong> hello@404collective.com</p>
+              <p style="color: #ccc; margin: 0.5rem 0;"><strong style="color: #fff;">Phone:</strong> +1 (555) 404-TECH</p>
+              <p style="color: #ccc; margin: 0.5rem 0;"><strong style="color: #fff;">Support:</strong> support@404collective.com</p>
+            </div>
+          </div>
+          
+          <div style="margin-bottom: 2rem;">
+            <h4 style="color: #fff; margin-bottom: 1rem;">Office Hours</h4>
+            <p style="color: #ccc; margin: 0.5rem 0;">Monday - Friday: 9:00 AM - 6:00 PM PST</p>
+            <p style="color: #ccc; margin: 0.5rem 0;">Saturday: 10:00 AM - 4:00 PM PST</p>
+            <p style="color: #ccc; margin: 0.5rem 0;">Sunday: Closed</p>
+          </div>
+
+          <div>
+            <h4 style="color: #fff; margin-bottom: 1rem;">Follow Us</h4>
+            <div style="display: flex; gap: 1rem;">
+              <a href="#" style="color: #ff0055; text-decoration: none; font-weight: bold;">Twitter</a>
+              <a href="#" style="color: #ff0055; text-decoration: none; font-weight: bold;">Instagram</a>
+              <a href="#" style="color: #ff0055; text-decoration: none; font-weight: bold;">LinkedIn</a>
+              <a href="#" style="color: #ff0055; text-decoration: none; font-weight: bold;">YouTube</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card contact-form">
+          <h3>Send Message</h3>
+          <form>
+            <div class="form-group">
+              <label for="name">Full Name:</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address:</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+              <label for="subject">Subject:</label>
+              <select id="subject" name="subject" required>
+                <option value="">Select a subject...</option>
+                <option value="general">General Inquiry</option>
+                <option value="product">Product Information</option>
+                <option value="support">Technical Support</option>
+                <option value="partnership">Partnership</option>
+                <option value="feedback">Feedback</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Message:</label>
+              <textarea id="message" name="message" rows="6" required></textarea>
+            </div>
+            <div class="form-group checkbox-group">
+              <input type="checkbox" id="newsletter" name="newsletter">
+              <label for="newsletter">Subscribe to our newsletter for updates</label>
+            </div>
+            <button type="submit" class="cta-button">Send Message</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="product-card" style="max-width: 800px; margin: 3rem auto 0;">
+        <h3>Frequently Asked Questions</h3>
+        <div style="text-align: left;">
+          <div style="margin-bottom: 1.5rem;">
+            <h4 style="color: #fff; margin-bottom: 0.5rem;">How long does it take to get a response?</h4>
+            <p style="color: #ccc; margin: 0;">We typically respond to all inquiries within 24 hours during business days.</p>
+          </div>
+          <div style="margin-bottom: 1.5rem;">
+            <h4 style="color: #fff; margin-bottom: 0.5rem;">Can I schedule a call with your team?</h4>
+            <p style="color: #ccc; margin: 0;">Absolutely! Include your preferred time in your message and we'll arrange a call.</p>
+          </div>
+          <div style="margin-bottom: 1.5rem;">
+            <h4 style="color: #fff; margin-bottom: 0.5rem;">Do you offer bulk pricing for businesses?</h4>
+            <p style="color: #ccc; margin: 0;">Yes, we have special pricing for enterprise customers. Contact us for details.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 404 Collective. All rights reserved.</p>
+  </footer>
+</body>
+</html> 

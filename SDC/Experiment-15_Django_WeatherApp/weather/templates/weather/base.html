@@ -1,0 +1,143 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Weathering with You{% endblock %}</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/theme.css' %}">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌤️</text></svg>">
+</head>
+<body class="weather-body">
+    <!-- Weather Background Elements -->
+    <div id="weather-background" class="weather-background">
+        <div id="rain-container" class="rain-container"></div>
+        <div id="snow-container" class="snow-container"></div>
+        <div id="clouds-container" class="clouds-container"></div>
+        <div id="stars-container" class="stars-container"></div>
+        <div id="wind-particles" class="wind-particles"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark weather-navbar">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'home' %}">
+                <i class="bi bi-cloud-sun me-2"></i>
+                Weathering with You
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}" href="{% url 'home' %}">
+                            <i class="bi bi-house-door me-1"></i>Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.resolver_match.url_name == 'current' %}active{% endif %}" href="{% url 'current' %}">
+                            <i class="bi bi-thermometer-half me-1"></i>Current
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.resolver_match.url_name == 'map' %}active{% endif %}" href="{% url 'map' %}">
+                            <i class="bi bi-geo-alt me-1"></i>Map
+                        </a>
+                    </li>
+                </ul>
+                
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.resolver_match.url_name == 'about' %}active{% endif %}" href="{% url 'about' %}">
+                            <i class="bi bi-info-circle me-1"></i>About
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.resolver_match.url_name == 'help' %}active{% endif %}" href="{% url 'help' %}">
+                            <i class="bi bi-question-circle me-1"></i>Help
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mood Switcher Panel -->
+    <div class="mood-switcher">
+        <div class="mood-switcher-toggle" onclick="toggleMoodSwitcher()">
+            <i class="bi bi-palette"></i>
+        </div>
+        <div class="mood-switcher-panel" id="moodPanel">
+            <h6>Mood Preview</h6>
+            <div class="mood-buttons">
+                <button class="btn btn-sm btn-outline-light" onclick="previewTheme('sunny')">
+                    ☀️ Sunny
+                </button>
+                <button class="btn btn-sm btn-outline-light" onclick="previewTheme('rainy')">
+                    🌧️ Rainy
+                </button>
+                <button class="btn btn-sm btn-outline-light" onclick="previewTheme('snowy')">
+                    ❄️ Snowy
+                </button>
+                <button class="btn btn-sm btn-outline-light" onclick="previewTheme('night')">
+                    🌙 Night
+                </button>
+                <button class="btn btn-sm btn-outline-light" onclick="previewTheme('cloudy')">
+                    ☁️ Cloudy
+                </button>
+                <button class="btn btn-sm btn-outline-light" onclick="previewTheme('windy')">
+                    🌬️ Windy
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="weather-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2025 Weathering with You</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0">Powered by OpenWeatherMap API</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="{% static 'js/theme-switcher.js' %}"></script>
+    <script src="{% static 'js/gradient-manager.js' %}"></script>
+    
+    {% block extra_js %}
+    {% endblock %}
+</body>
+</html> 

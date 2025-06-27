@@ -1,0 +1,133 @@
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #e3eafc;
+  margin: 0;
+  color: #222;
+}
+main {
+  max-width: 500px;
+  margin: 2.5rem auto;
+  background: #f8faff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+}
+.weather-form {
+  display: flex;
+  gap: 0.5rem;
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+.weather-form input {
+  flex: 1;
+  padding: 0.6rem 1rem;
+  border: 1px solid #b0c4de;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+.weather-form button {
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.weather-form button:hover {
+  background: #0056b3;
+}
+.current-weather {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  padding: 1.5rem 1rem;
+  margin-bottom: 2rem;
+  width: 100%;
+  text-align: center;
+}
+.weather-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+.temp {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #007bff;
+}
+.desc {
+  text-transform: capitalize;
+  color: #555;
+  font-size: 1.1rem;
+}
+.weather-details {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #eee;
+}
+.detail-item {
+  text-align: center;
+}
+.detail-item .label {
+  display: block;
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 0.25rem;
+}
+.detail-item .value {
+  display: block;
+  font-weight: 600;
+  color: #007bff;
+  font-size: 1.1rem;
+}
+.error-alert {
+  background: #fff3cd;
+  border: 1px solid #ffeaa7;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+.error-msg {
+  color: #856404;
+  margin: 0 0 0.5rem 0;
+  font-weight: 500;
+}
+.error-hint {
+  color: #856404;
+  margin: 0;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+.chart-container {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  padding: 1.5rem 1rem;
+  margin-bottom: 1.5rem;
+}
+.chart-container h3 {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #333;
+  font-size: 1.2rem;
+}
+@media (max-width: 600px) {
+  main {
+    padding: 1rem 0.5rem;
+  }
+  .current-weather, .chart-container {
+    padding: 1rem 0.5rem;
+  }
+  .weather-details {
+    flex-direction: column;
+    gap: 1rem;
+  }
+} 

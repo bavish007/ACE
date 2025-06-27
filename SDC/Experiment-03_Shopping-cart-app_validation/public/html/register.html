@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register - 404 Collective</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #ff0055;
+      --dark-bg: #1a1a1a;
+      --card-bg: #2a2a2a;
+      --text-light: #ffffff;
+      --text-muted: #cccccc;
+    }
+    
+    body {
+      background-color: var(--dark-bg);
+      color: var(--text-light);
+    }
+    
+    .navbar {
+      background-color: rgba(26, 26, 26, 0.95) !important;
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 0, 85, 0.1);
+    }
+    
+    .navbar-brand {
+      color: var(--primary-color) !important;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 1.5rem;
+    }
+    
+    .navbar-logo {
+      width: 45px;
+      height: 45px;
+      object-fit: contain;
+      filter: drop-shadow(0 0 10px rgba(255, 0, 85, 0.3));
+    }
+    
+    .navbar-nav .nav-link {
+      color: var(--text-light) !important;
+      transition: all 0.3s ease;
+      font-weight: 500;
+      padding: 0.75rem 1rem !important;
+      border-radius: 0.5rem;
+      margin: 0 0.25rem;
+    }
+    
+    .navbar-nav .nav-link:hover {
+      color: var(--primary-color) !important;
+      background-color: rgba(255, 0, 85, 0.1);
+      transform: translateY(-2px);
+    }
+    
+    .navbar-nav .nav-link.active {
+      color: var(--primary-color) !important;
+      background-color: rgba(255, 0, 85, 0.15);
+    }
+    
+    .tagline {
+      color: var(--text-muted);
+      font-style: italic;
+      font-size: 0.9rem;
+    }
+    
+    .hero-section {
+      background: linear-gradient(135deg, var(--dark-bg) 0%, #2a1a2a 50%, #1a1a2a 100%);
+      padding: 120px 0 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 30% 20%, rgba(255, 0, 85, 0.1) 0%, transparent 50%),
+                  radial-gradient(circle at 70% 80%, rgba(255, 0, 85, 0.05) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    
+    .hero-title {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 800;
+      background: linear-gradient(45deg, var(--text-light), var(--primary-color));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1.5rem;
+    }
+    
+    .hero-subtitle {
+      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+      color: var(--text-muted);
+      margin-bottom: 2.5rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .card {
+      background-color: var(--card-bg);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      overflow: hidden;
+      position: relative;
+    }
+    
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary-color), #ff3377);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+    
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(255, 0, 85, 0.15);
+      border-color: rgba(255, 0, 85, 0.3);
+    }
+    
+    .card:hover::before {
+      transform: scaleX(1);
+    }
+    
+    .card-body {
+      padding: 2.5rem;
+    }
+    
+    .form-label {
+      color: var(--text-light);
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-size: 0.9rem;
+    }
+    
+    .form-control, .form-select {
+      background-color: rgba(255, 255, 255, 0.1);
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      color: var(--text-light);
+      border-radius: 0.75rem;
+      padding: 1rem 1.25rem;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+    
+    .form-control:focus, .form-select:focus {
+      background-color: rgba(255, 255, 255, 0.15);
+      border-color: var(--primary-color);
+      color: var(--text-light);
+      box-shadow: 0 0 0 0.25rem rgba(255, 0, 85, 0.25);
+      transform: translateY(-2px);
+    }
+    
+    .form-control::placeholder {
+      color: rgba(255, 255, 255, 0.5);
+    }
+    
+    .form-check-input {
+      background-color: rgba(255, 255, 255, 0.1);
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      border-radius: 0.25rem;
+    }
+    
+    .form-check-input:checked {
+      background-color: var(--primary-color);
+      border-color: var(--primary-color);
+    }
+    
+    .form-check-input:focus {
+      box-shadow: 0 0 0 0.25rem rgba(255, 0, 85, 0.25);
+    }
+    
+    .form-check-label {
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+    
+    .btn-danger {
+      background: linear-gradient(45deg, var(--primary-color), #ff3377);
+      border: none;
+      padding: 1rem 2rem;
+      font-weight: 600;
+      border-radius: 0.75rem;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-size: 1rem;
+    }
+    
+    .btn-danger:hover {
+      background: linear-gradient(45deg, #d10045, var(--primary-color));
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(255, 0, 85, 0.3);
+    }
+    
+    .btn-outline-danger {
+      color: var(--primary-color);
+      border: 2px solid var(--primary-color);
+      background: transparent;
+      padding: 0.75rem 1.5rem;
+      font-weight: 600;
+      border-radius: 0.75rem;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .btn-outline-danger:hover {
+      background: var(--primary-color);
+      border-color: var(--primary-color);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(255, 0, 85, 0.3);
+    }
+    
+    .register-icon {
+      font-size: 3rem;
+      color: var(--primary-color);
+      margin-bottom: 1.5rem;
+    }
+    
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      margin: 2rem 0;
+    }
+    
+    .social-login {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    
+    .social-btn {
+      flex: 1;
+      padding: 0.75rem;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      background: transparent;
+      color: var(--text-light);
+      border-radius: 0.5rem;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      text-align: center;
+      font-weight: 500;
+    }
+    
+    .social-btn:hover {
+      border-color: var(--primary-color);
+      color: var(--primary-color);
+      transform: translateY(-2px);
+    }
+    
+    .password-strength {
+      margin-top: 0.5rem;
+      font-size: 0.85rem;
+    }
+    
+    .strength-bar {
+      height: 4px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 2px;
+      overflow: hidden;
+      margin-top: 0.5rem;
+    }
+    
+    .strength-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #dc3545, #ffc107, #28a745);
+      transition: width 0.3s ease;
+    }
+    
+    footer {
+      background: linear-gradient(135deg, var(--card-bg) 0%, #1a1a2a 100%);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 3rem 0 1rem;
+    }
+    
+    .footer-content {
+      text-align: center;
+      color: var(--text-muted);
+    }
+    
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    
+    .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-links a:hover {
+      color: var(--primary-color);
+    }
+    
+    @media (max-width: 768px) {
+      .hero-section {
+        padding: 100px 0 60px;
+      }
+      
+      .navbar-brand {
+        font-size: 1.25rem;
+      }
+      
+      .navbar-logo {
+        width: 35px;
+        height: 35px;
+      }
+      
+      .tagline {
+        display: none !important;
+      }
+      
+      .card-body {
+        padding: 2rem 1.5rem;
+      }
+      
+      .social-login {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body class="bg-dark text-light">
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="images/404-Collective-logo.png" alt="404 Collective Logo" class="navbar-logo">
+        <span>404 Collective</span>
+      </a>
+      <p class="tagline mb-0 d-none d-lg-block">what you're never supposed to find, but definitely want to..</p>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html"><i class="bi bi-house-door me-1"></i>Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="products.html"><i class="bi bi-grid me-1"></i>Products</a></li>
+          <li class="nav-item"><a class="nav-link" href="news.html"><i class="bi bi-newspaper me-1"></i>News</a></li>
+          <li class="nav-item"><a class="nav-link" href="support.html"><i class="bi bi-headset me-1"></i>Support</a></li>
+          <li class="nav-item"><a class="nav-link active" href="login.html"><i class="bi bi-person me-1"></i>Login</a></li>
+          <li class="nav-item"><a class="nav-link" href="cart.html"><i class="bi bi-cart3 me-1"></i>Cart</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- Hero -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-10 col-xl-8 text-center">
+          <h1 class="hero-title">Join the Collective</h1>
+          <p class="hero-subtitle">Create your account and become part of the 404 Collective community. Experience the future of technology.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Register Form -->
+  <div class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-md-8 col-lg-6 col-xl-5">
+        <div class="card bg-secondary border-0 shadow-sm">
+          <div class="card-body">
+            <div class="text-center mb-4">
+              <i class="bi bi-person-plus-fill register-icon"></i>
+              <h3 class="card-title mb-0">Create Account</h3>
+              <p class="text-muted mt-2">Join the Inferno series revolution</p>
+            </div>
+            
+            <form>
+              <div class="row">
+                <div class="col-md-6 mb-4">
+                  <label for="firstName" class="form-label">
+                    <i class="bi bi-person me-2"></i>First Name
+                  </label>
+                  <input type="text" class="form-control" id="firstName" placeholder="Enter first name" required>
+                </div>
+                
+                <div class="col-md-6 mb-4">
+                  <label for="lastName" class="form-label">
+                    <i class="bi bi-person me-2"></i>Last Name
+                  </label>
+                  <input type="text" class="form-control" id="lastName" placeholder="Enter last name" required>
+                </div>
+              </div>
+              
+              <div class="mb-4">
+                <label for="email" class="form-label">
+                  <i class="bi bi-envelope me-2"></i>Email Address
+                </label>
+                <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+              </div>
+              
+              <div class="mb-4">
+                <label for="phone" class="form-label">
+                  <i class="bi bi-telephone me-2"></i>Phone Number
+                </label>
+                <input type="tel" class="form-control" id="phone" placeholder="Enter phone number">
+              </div>
+              
+              <div class="mb-4">
+                <label for="password" class="form-label">
+                  <i class="bi bi-lock me-2"></i>Password
+                </label>
+                <input type="password" class="form-control" id="password" placeholder="Create a strong password" required>
+                <div class="password-strength">
+                  <div class="strength-bar">
+                    <div class="strength-fill" style="width: 60%;"></div>
+                  </div>
+                  <small class="text-muted">Password strength: Good</small>
+                </div>
+              </div>
+              
+              <div class="mb-4">
+                <label for="confirmPassword" class="form-label">
+                  <i class="bi bi-lock-fill me-2"></i>Confirm Password
+                </label>
+                <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm your password" required>
+              </div>
+              
+              <div class="mb-4">
+                <label for="country" class="form-label">
+                  <i class="bi bi-globe me-2"></i>Country
+                </label>
+                <select class="form-select" id="country" required>
+                  <option value="">Select your country</option>
+                  <option value="us">United States</option>
+                  <option value="ca">Canada</option>
+                  <option value="uk">United Kingdom</option>
+                  <option value="au">Australia</option>
+                  <option value="de">Germany</option>
+                  <option value="fr">France</option>
+                  <option value="jp">Japan</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              
+              <div class="mb-4 form-check">
+                <input type="checkbox" class="form-check-input" id="terms" required>
+                <label class="form-check-label" for="terms">
+                  I agree to the <a href="#" class="text-danger">Terms of Service</a> and <a href="#" class="text-danger">Privacy Policy</a>
+                </label>
+              </div>
+              
+              <div class="mb-4 form-check">
+                <input type="checkbox" class="form-check-input" id="newsletter">
+                <label class="form-check-label" for="newsletter">
+                  Subscribe to our newsletter for updates and exclusive offers
+                </label>
+              </div>
+              
+              <button type="submit" class="btn btn-danger w-100 mb-3">
+                <i class="bi bi-person-plus me-2"></i>Create Account
+              </button>
+            </form>
+            
+            <div class="divider"></div>
+            
+            <div class="text-center mb-4">
+              <span class="text-muted">Or sign up with</span>
+            </div>
+            
+            <div class="social-login">
+              <a href="#" class="social-btn">
+                <i class="bi bi-google me-2"></i>Google
+              </a>
+              <a href="#" class="social-btn">
+                <i class="bi bi-facebook me-2"></i>Facebook
+              </a>
+            </div>
+            
+            <div class="divider"></div>
+            
+            <div class="text-center">
+              <span class="text-muted">Already have an account?</span><br>
+              <a href="login.html" class="btn btn-outline-danger mt-3">
+                <i class="bi bi-box-arrow-in-right me-2"></i>Sign In
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-links">
+          <a href="about.html">About Us</a>
+          <a href="products.html">Products</a>
+          <a href="support.html">Support</a>
+          <a href="contact.html">Contact</a>
+          <a href="news.html">News</a>
+        </div>
+        <p class="mb-0">© 2025 404 Collective. All rights reserved. | what you're never supposed to find, but definitely want to..</p>
+      </div>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html> 

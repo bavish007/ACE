@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products - 404 Collective</title>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="styles.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #ff0055;
+      --dark-bg: #1a1a1a;
+      --card-bg: #2a2a2a;
+      --text-light: #ffffff;
+      --text-muted: #cccccc;
+    }
+    
+    body {
+      background-color: var(--dark-bg);
+      color: var(--text-light);
+    }
+    
+    .navbar {
+      background-color: rgba(26, 26, 26, 0.95) !important;
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 0, 85, 0.1);
+    }
+    
+    .navbar-brand {
+      color: var(--primary-color) !important;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 1.5rem;
+    }
+    
+    .navbar-logo {
+      width: 45px;
+      height: 45px;
+      object-fit: contain;
+      filter: drop-shadow(0 0 10px rgba(255, 0, 85, 0.3));
+    }
+    
+    .navbar-nav .nav-link {
+      color: var(--text-light) !important;
+      transition: all 0.3s ease;
+      font-weight: 500;
+      padding: 0.75rem 1rem !important;
+      border-radius: 0.5rem;
+      margin: 0 0.25rem;
+    }
+    
+    .navbar-nav .nav-link:hover {
+      color: var(--primary-color) !important;
+      background-color: rgba(255, 0, 85, 0.1);
+      transform: translateY(-2px);
+    }
+    
+    .navbar-nav .nav-link.active {
+      color: var(--primary-color) !important;
+      background-color: rgba(255, 0, 85, 0.15);
+    }
+    
+    .tagline {
+      color: var(--text-muted);
+      font-style: italic;
+      font-size: 0.9rem;
+    }
+    
+    .hero-section {
+      background: linear-gradient(135deg, var(--dark-bg) 0%, #2a1a2a 50%, #1a1a2a 100%);
+      padding: 120px 0 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 30% 20%, rgba(255, 0, 85, 0.1) 0%, transparent 50%),
+                  radial-gradient(circle at 70% 80%, rgba(255, 0, 85, 0.05) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    
+    .hero-title {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 800;
+      background: linear-gradient(45deg, var(--text-light), var(--primary-color));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1.5rem;
+    }
+    
+    .hero-subtitle {
+      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+      color: var(--text-muted);
+      margin-bottom: 2.5rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 3rem;
+      background: linear-gradient(45deg, var(--text-light), var(--primary-color));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .card {
+      background-color: var(--card-bg);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      overflow: hidden;
+      position: relative;
+      height: 100%;
+    }
+    
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary-color), #ff3377);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+    
+    .card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 20px 40px rgba(255, 0, 85, 0.15);
+      border-color: rgba(255, 0, 85, 0.3);
+    }
+    
+    .card:hover::before {
+      transform: scaleX(1);
+    }
+    
+    .card-img-top {
+      height: 250px;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    
+    .card:hover .card-img-top {
+      transform: scale(1.05);
+    }
+    
+    .card-body {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    
+    .card-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      color: var(--text-light);
+    }
+    
+    .card-text {
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+      flex-grow: 1;
+    }
+    
+    .price {
+      color: var(--primary-color);
+      font-weight: bold;
+      font-size: 1.3rem;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(45deg, var(--primary-color), #ff3377);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .btn-primary {
+      background: linear-gradient(45deg, var(--primary-color), #ff3377);
+      border: none;
+      padding: 0.75rem 1.5rem;
+      font-weight: 600;
+      border-radius: 0.5rem;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .btn-primary:hover {
+      background: linear-gradient(45deg, #d10045, var(--primary-color));
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(255, 0, 85, 0.3);
+    }
+    
+    .btn-outline-primary {
+      color: var(--primary-color);
+      border: 2px solid var(--primary-color);
+      background: transparent;
+      padding: 0.75rem 1.5rem;
+      font-weight: 600;
+      border-radius: 0.5rem;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .btn-outline-primary:hover {
+      background: var(--primary-color);
+      border-color: var(--primary-color);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(255, 0, 85, 0.3);
+    }
+    
+    .btn-outline-secondary {
+      color: var(--text-muted);
+      border: 2px solid var(--text-muted);
+      background: transparent;
+      padding: 0.75rem 1.5rem;
+      font-weight: 600;
+      border-radius: 0.5rem;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .btn-outline-secondary:hover {
+      background: var(--text-muted);
+      border-color: var(--text-muted);
+      color: var(--dark-bg);
+      transform: translateY(-2px);
+    }
+    
+    .product-badge {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: linear-gradient(45deg, var(--primary-color), #ff3377);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 2rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      z-index: 10;
+    }
+    
+    .filters-section {
+      background: linear-gradient(135deg, #1a1a2a 0%, var(--dark-bg) 100%);
+      padding: 2rem 0;
+      margin-bottom: 3rem;
+    }
+    
+    .filter-btn {
+      background: transparent;
+      border: 2px solid var(--text-muted);
+      color: var(--text-muted);
+      padding: 0.75rem 1.5rem;
+      border-radius: 2rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      margin: 0.25rem;
+    }
+    
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--primary-color);
+      border-color: var(--primary-color);
+      color: white;
+      transform: translateY(-2px);
+    }
+    
+    footer {
+      background: linear-gradient(135deg, var(--card-bg) 0%, #1a1a2a 100%);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 3rem 0 1rem;
+    }
+    
+    .footer-content {
+      text-align: center;
+      color: var(--text-muted);
+    }
+    
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    
+    .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-links a:hover {
+      color: var(--primary-color);
+    }
+    
+    @media (max-width: 768px) {
+      .hero-section {
+        padding: 100px 0 60px;
+      }
+      
+      .navbar-brand {
+        font-size: 1.25rem;
+      }
+      
+      .navbar-logo {
+        width: 35px;
+        height: 35px;
+      }
+      
+      .tagline {
+        display: none !important;
+      }
+      
+      .card-img-top {
+        height: 200px;
+      }
+    }
+    
+    /* Products page specific enhancements */
+    .product-grid {
+      animation: fadeInUp 0.8s ease-out;
+    }
+    
+    .product-card {
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .product-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary-color), var(--primary-glow));
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+    
+    .product-card:hover::before {
+      transform: scaleX(1);
+    }
+    
+    .product-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 0, 85, 0.1), transparent);
+      transition: left 0.6s ease;
+    }
+    
+    .product-card:hover::after {
+      left: 100%;
+    }
+    
+    .product-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: var(--shadow-strong);
+      border-color: var(--primary-color);
+    }
+    
+    .product-image {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .product-image img {
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .product-card:hover .product-image img {
+      transform: scale(1.1);
+      filter: brightness(1.1) contrast(1.1);
+    }
+    
+    .product-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, rgba(255, 0, 85, 0.8), rgba(255, 51, 119, 0.8));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .product-card:hover .product-overlay {
+      opacity: 1;
+    }
+    
+    .product-price {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+      text-shadow: 0 0 10px rgba(255, 0, 85, 0.3);
+    }
+    
+    .product-description {
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+    
+    .product-features {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1.5rem 0;
+    }
+    
+    .product-features li {
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+    
+    .product-features li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--primary-color);
+      font-weight: bold;
+    }
+    
+    .btn-add-cart {
+      background: linear-gradient(45deg, var(--primary-color), var(--primary-glow));
+      border: none;
+      padding: 0.75rem 1.5rem;
+      font-weight: 600;
+      border-radius: 0.5rem;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .btn-add-cart::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.5s ease;
+    }
+    
+    .btn-add-cart:hover::before {
+      left: 100%;
+    }
+    
+    .btn-add-cart:hover {
+      background: linear-gradient(45deg, var(--primary-glow), var(--primary-color));
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-strong);
+    }
+    
+    .btn-details {
+      color: var(--primary-color);
+      border: 2px solid var(--primary-color);
+      background: transparent;
+      padding: 0.75rem 1.5rem;
+      font-weight: 600;
+      border-radius: 0.5rem;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .btn-details:hover {
+      background: var(--primary-color);
+      border-color: var(--primary-color);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-strong);
+    }
+    
+    .filter-section {
+      background: linear-gradient(135deg, var(--card-bg) 0%, #1a1a2a 100%);
+      border: 1px solid var(--border-color);
+      border-radius: 1rem;
+      padding: 2rem;
+      margin-bottom: 3rem;
+      animation: fadeInDown 0.8s ease-out;
+    }
+    
+    .filter-btn {
+      background: transparent;
+      border: 2px solid var(--border-color);
+      color: var(--text-muted);
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      transition: all 0.3s ease;
+      margin: 0.25rem;
+    }
+    
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--primary-color);
+      border-color: var(--primary-color);
+      color: var(--text-light);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-glow);
+    }
+    
+    .product-badge {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: linear-gradient(45deg, var(--primary-color), var(--primary-glow));
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 1rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      z-index: 10;
+    }
+    
+    .product-stats {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+    
+    .product-rating {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .product-rating .bi {
+      color: #ffc107;
+    }
+    
+    .product-stock {
+      color: #28a745;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body class="bg-dark text-light">
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="images/404-Collective-logo.png" alt="404 Collective Logo" class="navbar-logo">
+        <span>404 Collective</span>
+      </a>
+      <p class="tagline mb-0 d-none d-lg-block">what you're never supposed to find, but definitely want to..</p>
+      
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">
+              <i class="bi bi-house-door me-1"></i>Home
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="products.html">
+              <i class="bi bi-grid me-1"></i>Products
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="news.html">
+              <i class="bi bi-newspaper me-1"></i>News
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="support.html">
+              <i class="bi bi-headset me-1"></i>Support
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="login.html">
+              <i class="bi bi-person me-1"></i>Login
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="cart.html">
+              <i class="bi bi-cart3 me-1"></i>Cart
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-10 col-xl-8 text-center">
+          <h1 class="hero-title">Inferno Series Collection</h1>
+          <p class="hero-subtitle">Discover our complete lineup of next-generation devices that push the boundaries of technology and design.</p>
+          <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center">
+            <a href="index.html" class="btn btn-primary btn-lg">
+              <i class="bi bi-arrow-left me-2"></i>Back to Home
+            </a>
+            <a href="cart.html" class="btn btn-outline-primary btn-lg">
+              <i class="bi bi-cart3 me-2"></i>View Cart
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filters Section -->
+  <section class="filters-section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 text-center">
+          <h4 class="mb-4 text-light">Filter by Category</h4>
+          <div class="d-flex flex-wrap justify-content-center gap-2">
+            <button class="filter-btn active">All Products</button>
+            <button class="filter-btn">Smartphones</button>
+            <button class="filter-btn">Tablets</button>
+            <button class="filter-btn">Wearables</button>
+            <button class="filter-btn">Accessories</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Grid -->
+  <section class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h2 class="section-title">All Products</h2>
+        </div>
+      </div>
+      
+      <div class="row g-4">
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+          <div class="card">
+            <div class="product-badge">Featured</div>
+            <img src="images/inferno-10-pro.jpg" class="card-img-top" alt="Inferno 10 Pro">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Inferno 10 Pro</h5>
+              <p class="card-text">Next-gen gaming smartphone with 144Hz display, 5G connectivity, and revolutionary cooling system.</p>
+              <div class="price">$1,299.99</div>
+              <div class="mt-auto d-flex flex-column gap-2">
+                <a href="cart.html" class="btn btn-primary">
+                  <i class="bi bi-cart-plus me-2"></i>Add to Cart
+                </a>
+                <a href="#" class="btn btn-outline-primary">
+                  <i class="bi bi-info-circle me-2"></i>View Details
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+          <div class="card">
+            <div class="product-badge">New</div>
+            <img src="images/inferno-air.jpg" class="card-img-top" alt="Inferno Air">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Inferno Air</h5>
+              <p class="card-text">Lightweight flagship experience with premium design, ceramic body, and advanced AI capabilities.</p>
+              <div class="price">$999.99</div>
+              <div class="mt-auto d-flex flex-column gap-2">
+                <a href="cart.html" class="btn btn-primary">
+                  <i class="bi bi-cart-plus me-2"></i>Add to Cart
+                </a>
+                <a href="#" class="btn btn-outline-primary">
+                  <i class="bi bi-info-circle me-2"></i>View Details
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+          <div class="card">
+            <img src="images/inferno-pad.jpg" class="card-img-top" alt="Inferno Pad">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Inferno Pad</h5>
+              <p class="card-text">Tablet-level productivity on the go with 12.9" Liquid Retina display and M2 chip performance.</p>
+              <div class="price">$799.99</div>
+              <div class="mt-auto d-flex flex-column gap-2">
+                <a href="cart.html" class="btn btn-primary">
+                  <i class="bi bi-cart-plus me-2"></i>Add to Cart
+                </a>
+                <a href="#" class="btn btn-outline-primary">
+                  <i class="bi bi-info-circle me-2"></i>View Details
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+          <div class="card">
+            <img src="images/inferno-watch.jpg" class="card-img-top" alt="Inferno Watch">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Inferno Watch</h5>
+              <p class="card-text">Style meets functionality on your wrist with advanced health tracking and cellular connectivity.</p>
+              <div class="price">$299.99</div>
+              <div class="mt-auto d-flex flex-column gap-2">
+                <a href="cart.html" class="btn btn-primary">
+                  <i class="bi bi-cart-plus me-2"></i>Add to Cart
+                </a>
+                <a href="#" class="btn btn-outline-primary">
+                  <i class="bi bi-info-circle me-2"></i>View Details
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+          <div class="card">
+            <img src="images/inferno-earbuds.jpg" class="card-img-top" alt="Inferno Earbuds">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Inferno Earbuds</h5>
+              <p class="card-text">Wireless audio with active noise cancellation, spatial audio, and 24-hour battery life.</p>
+              <div class="price">$199.99</div>
+              <div class="mt-auto d-flex flex-column gap-2">
+                <a href="cart.html" class="btn btn-primary">
+                  <i class="bi bi-cart-plus me-2"></i>Add to Cart
+                </a>
+                <a href="#" class="btn btn-outline-primary">
+                  <i class="bi bi-info-circle me-2"></i>View Details
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+          <div class="card">
+            <img src="images/inferno-charger.jpg" class="card-img-top" alt="Inferno Charger">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Inferno Charger</h5>
+              <p class="card-text">100W fast charging with wireless capabilities, multiple ports, and smart power management.</p>
+              <div class="price">$89.99</div>
+              <div class="mt-auto d-flex flex-column gap-2">
+                <a href="cart.html" class="btn btn-primary">
+                  <i class="bi bi-cart-plus me-2"></i>Add to Cart
+                </a>
+                <a href="#" class="btn btn-outline-primary">
+                  <i class="bi bi-info-circle me-2"></i>View Details
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+          <div class="card">
+            <img src="images/inferno-case.jpg" class="card-img-top" alt="Inferno Case">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Inferno Case</h5>
+              <p class="card-text">Premium protection with carbon fiber design, military-grade drop protection, and wireless charging compatible.</p>
+              <div class="price">$49.99</div>
+              <div class="mt-auto d-flex flex-column gap-2">
+                <a href="cart.html" class="btn btn-primary">
+                  <i class="bi bi-cart-plus me-2"></i>Add to Cart
+                </a>
+                <a href="#" class="btn btn-outline-primary">
+                  <i class="bi bi-info-circle me-2"></i>View Details
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+          <div class="card">
+            <img src="images/inferno-cable.jpg" class="card-img-top" alt="Inferno Cable">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Inferno Cable</h5>
+              <p class="card-text">Braided USB-C cable with LED indicators, 100W power delivery, and data transfer up to 40Gbps.</p>
+              <div class="price">$29.99</div>
+              <div class="mt-auto d-flex flex-column gap-2">
+                <a href="cart.html" class="btn btn-primary">
+                  <i class="bi bi-cart-plus me-2"></i>Add to Cart
+                </a>
+                <a href="#" class="btn btn-outline-primary">
+                  <i class="bi bi-info-circle me-2"></i>View Details
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-links">
+          <a href="about.html">About Us</a>
+          <a href="products.html">Products</a>
+          <a href="support.html">Support</a>
+          <a href="contact.html">Contact</a>
+          <a href="news.html">News</a>
+        </div>
+        <p class="mb-0">© 2025 404 Collective. All rights reserved. | what you're never supposed to find, but definitely want to..</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+  <script>
+    // Product filtering functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const productCards = document.querySelectorAll('[data-category]');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const filter = this.getAttribute('data-filter');
+                
+                // Update active button
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Filter products
+                productCards.forEach(card => {
+                    const category = card.getAttribute('data-category');
+                    if (filter === 'all' || category === filter) {
+                        card.style.display = 'block';
+                        card.style.animation = 'scaleIn 0.5s ease-out';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    });
+  </script>
+</body>
+</html> 

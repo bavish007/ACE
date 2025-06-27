@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <main>
+        <h1>Weather Information</h1>
+        <form method="get" class="weather-form">
+            <input type="text" name="city" value="{{ city }}" placeholder="Enter city name..." required>
+            <button type="submit">Search</button>
+        </form>
+        
+        {% if error %}
+        <div class="error-alert">
+            <p class="error-msg">{{ error }}</p>
+            <p class="error-hint">💡 Try checking the city spelling or try a different location.</p>
+        </div>
+        {% endif %}
+        
+        {% if current %}
+        <div class="current-weather">
+            <h2>{{ current.name }}, {{ current.sys.country }}</h2>
+            <div class="weather-main">
+                <img src="https://openweathermap.org/img/wn/{{ current.weather.0.icon }}@2x.png" alt="weather icon">
+                <div>
+                    <div class="temp">{{ current.main.temp|floatformat:0 }}°C</div>
+                    <div class="desc">{{ current.weather.0.description }}</div>
+                </div>
+            </div>
+            <div class="weather-details">
+                <div class="detail-item">
+                    <span class="label">Humidity:</span>
+                    <span class="value">{{ current.main.humidity }}%</span>
+                </div>
+                <div class="detail-item">
+                    <span class="label">Wind Speed:</span>
+                    <span class="value">{{ current.wind.speed }} m/s</span>
+                </div>
+                <div class="detail-item">
+                    <span class="label">Pressure:</span>
+                    <span class="value">{{ current.main.pressure }} hPa</span>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        
+        {% if trend %}
+        <div class="chart-container">
+            <h3>5-Day Temperature Trend</h3>
+            <canvas id="trendChart" width="400" height="200"></canvas>
+        </div>
+        <script>
+        const trendData = {{ trend|safe }};
+        const ctx = document.getElementById('trendChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: trendData.map(d => d.date),
+                datasets: [{
+                    label: 'Temperature (°C)',
+                    data: trendData.map(d => d.temp),
+                    borderColor: '#007bff',
+                    backgroundColor: '#007bff22',
+                    tension: 0.3,
+                    pointRadius: 5,
+                    pointHoverRadius: 7,
+                    fill: true,
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: { legend: { display: false } },
+                scales: {
+                    y: { beginAtZero: false, title: { display: true, text: '°C' } },
+                    x: { title: { display: true, text: 'Date' } },
+                },
+            }
+        });
+        </script>
+        {% endif %}
+    </main>
+</body>
+</html> 

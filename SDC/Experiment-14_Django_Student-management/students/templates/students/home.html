@@ -1,0 +1,166 @@
+{% extends 'students/base.html' %}
+
+{% block title %}Home - NeoScholars Student Management{% endblock %}
+
+{% block content %}
+<div class="container">
+    <!-- Welcome Section -->
+    <div class="row mb-5">
+        <div class="col-12">
+            <div class="card fade-in">
+                <div class="card-body text-center">
+                    <h1 class="display-4 mb-3">
+                        <i class="bi bi-mortarboard-fill text-primary me-3"></i>
+                        Welcome to NeoScholars
+                    </h1>
+                    <p class="lead mb-4">
+                        A comprehensive Student Management System designed to streamline academic operations 
+                        and enhance the learning experience for educational institutions.
+                    </p>
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <a href="{% url 'student_list' %}" class="btn btn-primary btn-lg w-100">
+                                <i class="bi bi-people me-2"></i>View Students
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="{% url 'add_student' %}" class="btn btn-outline-primary btn-lg w-100">
+                                <i class="bi bi-person-plus me-2"></i>Add Student
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="{% url 'about' %}" class="btn btn-outline-primary btn-lg w-100">
+                                <i class="bi bi-info-circle me-2"></i>Learn More
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stats Section -->
+    <div class="row mb-5">
+        <div class="col-md-6 col-lg-3 mb-3">
+            <div class="card stats-card fade-in">
+                <div class="card-body">
+                    <div class="stats-number">{{ total_students }}</div>
+                    <div class="stats-label">Total Students</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3 mb-3">
+            <div class="card stats-card fade-in" style="background: linear-gradient(135deg, #2ea043, #3fb950);">
+                <div class="card-body">
+                    <div class="stats-number">{{ total_students|add:"0" }}</div>
+                    <div class="stats-label">Active Students</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3 mb-3">
+            <div class="card stats-card fade-in" style="background: linear-gradient(135deg, #e3b341, #f0c674);">
+                <div class="card-body">
+                    <div class="stats-number">10</div>
+                    <div class="stats-label">Courses Available</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3 mb-3">
+            <div class="card stats-card fade-in" style="background: linear-gradient(135deg, #f85149, #ff6b6b);">
+                <div class="card-body">
+                    <div class="stats-number">24/7</div>
+                    <div class="stats-label">System Uptime</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <div class="row mb-5">
+        <div class="col-12">
+            <h2 class="text-center mb-4">Key Features</h2>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 fade-in">
+                <div class="card-body text-center">
+                    <i class="bi bi-people-fill text-primary" style="font-size: 3rem;"></i>
+                    <h5 class="card-title mt-3">Student Management</h5>
+                    <p class="card-text">
+                        Complete CRUD operations for student records with advanced search and filtering capabilities.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 fade-in">
+                <div class="card-body text-center">
+                    <i class="bi bi-search text-primary" style="font-size: 3rem;"></i>
+                    <h5 class="card-title mt-3">Advanced Search</h5>
+                    <p class="card-text">
+                        Powerful search functionality to quickly find students by name, email, or course.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 fade-in">
+                <div class="card-body text-center">
+                    <i class="bi bi-graph-up text-primary" style="font-size: 3rem;"></i>
+                    <h5 class="card-title mt-3">Analytics</h5>
+                    <p class="card-text">
+                        Comprehensive statistics and insights about student enrollment and course distribution.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recent Students Section -->
+    {% if recent_students %}
+    <div class="row">
+        <div class="col-12">
+            <div class="card fade-in">
+                <div class="card-header">
+                    <h5 class="mb-0">
+                        <i class="bi bi-clock-history me-2"></i>
+                        Recently Added Students
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Course</th>
+                                    <th>Added</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for student in recent_students %}
+                                <tr>
+                                    <td>{{ student.full_name }}</td>
+                                    <td>{{ student.email }}</td>
+                                    <td>
+                                        <span class="badge badge-primary">{{ student.get_course_display }}</span>
+                                    </td>
+                                    <td>{{ student.created_at|date:"M d, Y" }}</td>
+                                    <td>
+                                        <a href="{% url 'edit_student' student.pk %}" class="btn btn-sm btn-outline-primary">
+                                            <i class="bi bi-pencil"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %} 

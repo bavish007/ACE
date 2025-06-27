@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Session Management Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { background: #f8fafc; min-height: 100vh; display: flex; align-items: center; justify-content: center; font-family: 'Segoe UI', Arial, sans-serif; }
+        .login-box { background: #fff; padding: 2.5rem 2rem; border-radius: 12px; box-shadow: 0 4px 24px rgba(0,0,0,0.08); width: 100%; max-width: 350px; }
+        h2 { text-align: center; color: #2d3748; margin-bottom: 1.5rem; }
+        label { display: block; margin-bottom: 0.5rem; color: #4a5568; font-weight: 500; }
+        input[type="email"], input[type="password"] { width: 100%; padding: 0.75rem; margin-bottom: 1.2rem; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 1rem; background: #f1f5f9; transition: border 0.2s; }
+        input[type="email"]:focus, input[type="password"]:focus { border-color: #3182ce; outline: none; }
+        button { width: 100%; padding: 0.8rem; background: #3182ce; color: #fff; border: none; border-radius: 6px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: background 0.2s; }
+        button:hover { background: #2563eb; }
+    </style>
+</head>
+<body>
+    <div class="login-box">
+        <h2>Login</h2>
+        <%-- Show logout or timeout message if present --%>
+        <script type="text/javascript">
+        // This will be replaced with JSP logic since JS is not allowed
+        </script>
+        <div id="msg-box">
+        <!-- JSP logic for logout/timeout message -->
+        <% String msg = request.getParameter("logout");
+           if ("1".equals(msg)) { %>
+            <div style="color:#16a34a; font-weight:600; margin-bottom:1rem; text-align:center;">You've been logged out successfully.</div>
+        <% } %>
+        <% msg = request.getParameter("timeout");
+           if ("1".equals(msg)) { %>
+            <div style="color:#ef4444; font-weight:600; margin-bottom:1rem; text-align:center;">Session timed out. Please login again.</div>
+        <% } %>
+        </div>
+        <form method="post" action="LoginServlet">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">Login</button>
+        </form>
+        <div style="text-align:center; margin-top:1.2rem;">
+            <a href="register.html" style="color:#2563eb; text-decoration:none; font-size:0.98rem;">New user? Register</a>
+        </div>
+    </div>
+</body>
+</html> 
