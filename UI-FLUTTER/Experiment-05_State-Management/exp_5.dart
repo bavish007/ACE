@@ -1,3 +1,9 @@
+// ---------------------------------------------------------------------------
+// File:       exp_5.dart
+// Author:     Bavish Reddy Muske (23AG1A0542)
+// Created:    2025
+// Purpose:    Academic Experiment Implementation
+// ---------------------------------------------------------------------------
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -6,6 +12,7 @@ class Exp5Page extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    debugPrint('[AUTH] Executing: Bavish Reddy Muske - 23AG1A0542');
     return ChangeNotifierProvider(
       create: (_) => CounterModel(),
       child: Column(

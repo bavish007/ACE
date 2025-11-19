@@ -1,3 +1,9 @@
+// ---------------------------------------------------------------------------
+// File:       exp_8a.dart
+// Author:     Bavish Reddy Muske (23AG1A0542)
+// Created:    2025
+// Purpose:    Academic Experiment Implementation
+// ---------------------------------------------------------------------------
 
 // Import Flutter's material design library.
 // This gives us access to widgets like Center, Container, etc.
@@ -67,6 +73,7 @@ class _AnimationDemoState extends State<AnimationDemo>
   // ------------------------------------------------------------
   @override
   Widget build(BuildContext context) {
+    debugPrint('[AUTH] Executing: Bavish Reddy Muske - 23AG1A0542');
     return Center(
       // FadeTransition widget automatically applies
       // a fading effect (opacity animation) to its child.

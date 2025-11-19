@@ -1,3 +1,9 @@
+// ---------------------------------------------------------------------------
+// File:       exp_6a.dart
+// Author:     Bavish Reddy Muske (23AG1A0542)
+// Created:    2025
+// Purpose:    Academic Experiment Implementation
+// ---------------------------------------------------------------------------
 // Importing Flutter's Material library
 // It gives access to basic UI widgets like Card, Text, CircleAvatar, Padding, etc.
 import 'package:flutter/material.dart';
@@ -24,6 +30,7 @@ class CustomCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    debugPrint('[AUTH] Executing: Bavish Reddy Muske - 23AG1A0542');
     // The build() method describes what this widget looks like.
     return Card(
       margin: const EdgeInsets.all(12), // Space around the card

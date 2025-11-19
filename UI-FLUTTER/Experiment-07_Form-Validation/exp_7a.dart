@@ -1,3 +1,9 @@
+// ---------------------------------------------------------------------------
+// File:       exp_7a.dart
+// Author:     Bavish Reddy Muske (23AG1A0542)
+// Created:    2025
+// Purpose:    Academic Experiment Implementation
+// ---------------------------------------------------------------------------
 
 // Import the Flutter material package which contains all
 // the widgets and UI elements like TextField, Button, etc.
@@ -48,6 +54,7 @@ class _FormPageState extends State<FormPage> {
   // -------------------------------------------------------------
   @override
   Widget build(BuildContext context) {
+    debugPrint('[AUTH] Executing: Bavish Reddy Muske - 23AG1A0542');
     return Padding(
       // Add space (16 pixels) around the form
       padding: const EdgeInsets.all(16),

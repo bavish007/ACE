@@ -1,3 +1,9 @@
+// ---------------------------------------------------------------------------
+// File:       exp_4.dart
+// Author:     Bavish Reddy Muske (23AG1A0542)
+// Created:    2025
+// Purpose:    Academic Experiment Implementation
+// ---------------------------------------------------------------------------
 import 'package:flutter/material.dart';
 
 class Exp4Page extends StatelessWidget {
@@ -5,6 +11,7 @@ class Exp4Page extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    debugPrint('[AUTH] Executing: Bavish Reddy Muske - 23AG1A0542');
     return Navigator(
       onGenerateRoute: (settings) {
         if (settings.name == '/second') {

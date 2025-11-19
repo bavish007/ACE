@@ -1,3 +1,9 @@
+// ---------------------------------------------------------------------------
+// File:       exp_2a.dart
+// Author:     Bavish Reddy Muske (23AG1A0542)
+// Created:    2025
+// Purpose:    Academic Experiment Implementation
+// ---------------------------------------------------------------------------
 import 'package:flutter/material.dart'; // to have related flutter components
 
 class Exp2aPage extends StatelessWidget {
@@ -5,6 +11,7 @@ class Exp2aPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    debugPrint('[AUTH] Executing: Bavish Reddy Muske - 23AG1A0542');
     return Padding(
       padding: const EdgeInsets.all(16),
       child: Column(

@@ -1,3 +1,9 @@
+// ---------------------------------------------------------------------------
+// File:       exp_10b.dart
+// Author:     Bavish Reddy Muske (23AG1A0542)
+// Created:    2025
+// Purpose:    Academic Experiment Implementation
+// ---------------------------------------------------------------------------
 // Importing Flutter's Material Design package
 // This gives access to all the UI widgets like Text, Center, Scaffold, etc.
 import 'package:flutter/material.dart';
@@ -11,6 +17,7 @@ class DebugPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    debugPrint('[AUTH] Executing: Bavish Reddy Muske - 23AG1A0542');
     // ----------------------------------------------------------
     // 🪲 debugPrint() — a Flutter function used to print messages
     // in the Debug Console (like print(), but safer for long text).

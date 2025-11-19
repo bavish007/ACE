@@ -1,3 +1,9 @@
+// ---------------------------------------------------------------------------
+// File:       exp_7b.dart
+// Author:     Bavish Reddy Muske (23AG1A0542)
+// Created:    2025
+// Purpose:    Academic Experiment Implementation
+// ---------------------------------------------------------------------------
 
 // This class contains different validation methods for checking
 // user input like Name, Email, and Age.

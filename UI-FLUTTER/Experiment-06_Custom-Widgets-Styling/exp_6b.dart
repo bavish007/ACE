@@ -1,3 +1,9 @@
+// ---------------------------------------------------------------------------
+// File:       exp_6b.dart
+// Author:     Bavish Reddy Muske (23AG1A0542)
+// Created:    2025
+// Purpose:    Academic Experiment Implementation
+// ---------------------------------------------------------------------------
 
 // Importing Flutter's Material package
 // It gives access to ThemeData, Colors, InputDecorationTheme, etc.

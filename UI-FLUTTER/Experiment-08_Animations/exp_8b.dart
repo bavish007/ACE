@@ -1,3 +1,9 @@
+// ---------------------------------------------------------------------------
+// File:       exp_8b.dart
+// Author:     Bavish Reddy Muske (23AG1A0542)
+// Created:    2025
+// Purpose:    Academic Experiment Implementation
+// ---------------------------------------------------------------------------
 
 // Import Flutter Material library for animation and UI widgets
 import 'package:flutter/material.dart';
@@ -65,6 +71,7 @@ class _SlideFadeDemoState extends State<SlideFadeDemo>
   // -------------------------------
   @override
   Widget build(BuildContext context) {
+    debugPrint('[AUTH] Executing: Bavish Reddy Muske - 23AG1A0542');
     return Center(
       child: SlideTransition(
         // position defines where the widget starts and ends on the screen

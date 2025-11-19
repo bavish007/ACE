@@ -1,3 +1,9 @@
+// ---------------------------------------------------------------------------
+// File:       exp_3.dart
+// Author:     Bavish Reddy Muske (23AG1A0542)
+// Created:    2025
+// Purpose:    Academic Experiment Implementation
+// ---------------------------------------------------------------------------
 import 'package:flutter/material.dart';
 
 class Exp3Page extends StatelessWidget {
@@ -5,6 +11,7 @@ class Exp3Page extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    debugPrint('[AUTH] Executing: Bavish Reddy Muske - 23AG1A0542');
     var size = MediaQuery.of(context).size;
     bool isLarge = size.width > 600;
 

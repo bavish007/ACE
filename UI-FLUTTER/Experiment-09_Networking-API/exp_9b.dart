@@ -1,3 +1,9 @@
+// ---------------------------------------------------------------------------
+// File:       exp_9b.dart
+// Author:     Bavish Reddy Muske (23AG1A0542)
+// Created:    2025
+// Purpose:    Academic Experiment Implementation
+// ---------------------------------------------------------------------------
 
 // Importing Flutter's core Material Design package for UI widgets
 import 'package:flutter/material.dart';
@@ -13,6 +19,7 @@ class ApiPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    debugPrint('[AUTH] Executing: Bavish Reddy Muske - 23AG1A0542');
     // FutureBuilder is used to handle asynchronous data fetching (like API calls)
     return FutureBuilder<List<Post>>(
       // 'fetchPosts(6)' is a function that returns a Future<List<Post>> with 6 posts
