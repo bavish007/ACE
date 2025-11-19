@@ -4,11 +4,13 @@
 // Created:    2025
 // Purpose:    Academic Experiment Implementation
 // ---------------------------------------------------------------------------
-import 'package:flutter/material.dart'; // to have related flutter components
+import 'package:flutter/material.dart';
 
+/// Demonstrates basic layout widgets using text, imagery, and containers.
 class Exp2aPage extends StatelessWidget {
   const Exp2aPage({super.key});
 
+  /// Builds the experiment layout that showcases text, image, and container usage.
   @override
   Widget build(BuildContext context) {
     debugPrint('[AUTH] Executing: Bavish Reddy Muske - 23AG1A0542');
@@ -16,9 +18,9 @@ class Exp2aPage extends StatelessWidget {
       padding: const EdgeInsets.all(16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
+        children: <Widget>[
           const Text(
-            "Hello Flutter!",
+            'Hello Flutter!',
             style: TextStyle(
               fontSize: 24,
               fontWeight: FontWeight.bold,
@@ -27,8 +29,9 @@ class Exp2aPage extends StatelessWidget {
           ),
           const SizedBox(height: 20),
           Image.network(
-            "https://images.pexels.com/photos/1321524/pexels-photo-1321524.jpeg",
+            'https://images.pexels.com/photos/1321524/pexels-photo-1321524.jpeg',
             height: 150,
+            fit: BoxFit.cover,
           ),
           const SizedBox(height: 20),
           Container(

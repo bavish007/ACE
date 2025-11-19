@@ -12,8 +12,7 @@ import 'package:flutter/material.dart';
 // 🔷 1. CUSTOM CARD WIDGET
 // ==============================
 
-// A StatelessWidget means this widget does not change once created.
-// It only displays data given to it through constructor parameters.
+/// Card component that renders a title and optional subtitle with padding.
 class CustomCard extends StatelessWidget {
   // Properties (variables) that hold the title and subtitle values.
   // 'final' means they cannot be changed after creation.
@@ -28,6 +27,7 @@ class CustomCard extends StatelessWidget {
     this.subtitle, // subtitle is optional.
   });
 
+  /// Builds the card layout with typography consistent with the app theme.
   @override
   Widget build(BuildContext context) {
     debugPrint('[AUTH] Executing: Bavish Reddy Muske - 23AG1A0542');
@@ -39,7 +39,7 @@ class CustomCard extends StatelessWidget {
         child: Column(
           // Align all items (text widgets) to the start (left side)
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
+          children: <Widget>[
             // Main title text — large and styled using the app's theme
             Text(title, style: Theme.of(context).textTheme.titleLarge),
 
@@ -60,8 +60,7 @@ class CustomCard extends StatelessWidget {
 // 🔷 2. CUSTOM AVATAR WIDGET
 // ==============================
 
-// This widget creates a circular avatar (like a profile picture)
-// showing the person’s initials inside (e.g., "John Doe" → "JD").
+/// Circular avatar widget that renders initials derived from a name.
 class CustomAvatar extends StatelessWidget {
   final String name; // Name used to generate initials
   final double size; // Size of the avatar circle
@@ -69,25 +68,26 @@ class CustomAvatar extends StatelessWidget {
   // Constructor with a default size = 48 if not provided.
   const CustomAvatar({super.key, required this.name, this.size = 48});
 
+  /// Builds the avatar circle and safely derives initials for display.
   @override
   Widget build(BuildContext context) {
     // Generate initials from the given name
-    final initials = name.trim().isEmpty
+    final String initialsText = name.trim().isEmpty
         ? '?' // If name is empty, show '?'
         : name
-              .trim() // Remove spaces from start and end
-              .split(RegExp(r"\s+")) // Split name into words (on spaces)
-              .where((s) => s.isNotEmpty) // Ignore empty parts
-              .map((s) => s[0]) // Take first letter of each word
-              .take(2) // Keep only first 2 letters (e.g., John Doe → JD)
-              .join(); // Combine them into one string
+            .trim() // Remove spaces from start and end
+            .split(RegExp(r'\s+')) // Split name into words (on spaces)
+            .where((String segment) => segment.isNotEmpty) // Ignore empty parts
+            .map((String segment) => segment[0]) // Take first letter of each word
+            .take(2) // Keep only first 2 letters (e.g., John Doe → JD)
+            .join(); // Combine them into one string
 
     // CircleAvatar is a ready-made widget that draws a circle
     // You can display text or an image inside it.
     return CircleAvatar(
       radius: size / 2, // The size of the circle
       child: Text(
-        initials, // Show initials inside the circle
+        initialsText, // Show initials inside the circle
         style: TextStyle(
           fontSize: size / 2.6, // Make text scale with avatar size
           fontWeight: FontWeight.bold, // Make initials bold

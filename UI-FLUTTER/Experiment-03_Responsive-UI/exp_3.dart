@@ -6,23 +6,25 @@
 // ---------------------------------------------------------------------------
 import 'package:flutter/material.dart';
 
+/// Demonstrates a responsive layout that adapts to the screen width.
 class Exp3Page extends StatelessWidget {
   const Exp3Page({super.key});
 
+  /// Builds the responsive UI that toggles presentation based on screen size.
   @override
   Widget build(BuildContext context) {
     debugPrint('[AUTH] Executing: Bavish Reddy Muske - 23AG1A0542');
-    var size = MediaQuery.of(context).size;
-    bool isLarge = size.width > 600;
+    final Size screenSize = MediaQuery.of(context).size;
+    final bool isLargeScreen = screenSize.width > 600;
 
     return Center(
       child: Container(
         padding: const EdgeInsets.all(20),
-        color: isLarge ? Colors.green[200] : Colors.blue[200],
+        color: isLargeScreen ? Colors.green[200] : Colors.blue[200],
         child: Text(
-          isLarge
-              ? "Large Screen Layout (${size.width}px)"
-              : "Small Screen Layout (${size.width}px)",
+          isLargeScreen
+              ? 'Large Screen Layout (${screenSize.width}px)'
+              : 'Small Screen Layout (${screenSize.width}px)',
           style: const TextStyle(fontSize: 18),
         ),
       ),

@@ -19,6 +19,7 @@ import 'package:flutter/material.dart';
 //
 // We create a variable 'appTheme' that will be used in main.dart
 // inside MaterialApp(theme: appTheme)
+/// Global theme configuration applied across the Flutter experiment app.
 final ThemeData appTheme = ThemeData(
   // ----------------------------
   // PRIMARY COLOR SWATCH
@@ -38,14 +39,16 @@ final ThemeData appTheme = ThemeData(
   // ----------------------------
   // Scaffold is the main screen container.
   // This color becomes the background for most pages.
-  scaffoldBackgroundColor: Colors.grey[100], // light grey background
+  scaffoldBackgroundColor: Colors.grey.shade100, // light grey background
   // ----------------------------
   // CARD THEME (for all Card widgets)
   // ----------------------------
   // This applies default styling to every Card in the app.
-  cardTheme: CardThemeData(
+  cardTheme: const CardTheme(
     // Rounded corners for a softer look
-    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.all(Radius.circular(12)),
+    ),
     // Adds a soft drop shadow effect under cards
     elevation: 4,
   ),
@@ -54,9 +57,11 @@ final ThemeData appTheme = ThemeData(
   // INPUT FIELD THEME (for TextFields, Forms, etc.)
   // ----------------------------
   // This controls how input boxes (like login forms) look.
-  inputDecorationTheme: InputDecorationTheme(
+  inputDecorationTheme: const InputDecorationTheme(
     // Rounded borders around the input box
-    border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
+    border: OutlineInputBorder(
+      borderRadius: BorderRadius.all(Radius.circular(8)),
+    ),
     // Makes text fields have a filled white background
     filled: true,
     fillColor: Colors.white,

@@ -12,11 +12,12 @@ import 'package:flutter/material.dart';
 // ------------------------------------------------------------
 // 1️⃣ This widget demonstrates a simple animation (fade in & out)
 // ------------------------------------------------------------
+/// Demonstrates a looping fade animation using [FadeTransition].
 class AnimationDemo extends StatefulWidget {
   const AnimationDemo({super.key});
 
   // The createState() method creates the mutable part of the widget
-  // where all the animation logic and variables will live.
+  /// Creates the mutable animation state backing the widget.
   @override
   State<AnimationDemo> createState() => _AnimationDemoState();
 }
@@ -32,11 +33,12 @@ class _AnimationDemoState extends State<AnimationDemo>
     with SingleTickerProviderStateMixin {
   // Declare an AnimationController variable.
   // 'late' means we’ll initialize it later in initState().
-  late final AnimationController _controller;
+  late final AnimationController _fadeController;
 
   // ------------------------------------------------------------
   // 3️⃣ initState() is called only once — when the widget is created.
   // ------------------------------------------------------------
+  /// Initializes the animation controller and starts the repeating loop.
   @override
   void initState() {
     super.initState();
@@ -46,7 +48,7 @@ class _AnimationDemoState extends State<AnimationDemo>
     // It needs two things:
     //   - vsync: this → connects the animation to the screen refresh
     //   - duration: how long one full animation cycle takes
-    _controller =
+    _fadeController =
         AnimationController(
             vsync:
                 this, // ensures efficient performance by syncing to screen refresh
@@ -62,15 +64,17 @@ class _AnimationDemoState extends State<AnimationDemo>
   // 4️⃣ dispose() is called automatically when the widget is removed
   // from the screen. We use it to clean up resources.
   // ------------------------------------------------------------
+  /// Disposes the animation controller to free resources.
   @override
   void dispose() {
-    _controller.dispose(); // stop animation & free memory
+    _fadeController.dispose(); // stop animation & free memory
     super.dispose();
   }
 
   // ------------------------------------------------------------
   // 5️⃣ The build() method builds the UI part of the widget.
   // ------------------------------------------------------------
+  /// Builds the animated container that fades in and out continuously.
   @override
   Widget build(BuildContext context) {
     debugPrint('[AUTH] Executing: Bavish Reddy Muske - 23AG1A0542');
@@ -81,15 +85,15 @@ class _AnimationDemoState extends State<AnimationDemo>
       // 'opacity: _controller' means it will use the animation values
       // from the controller (from 0.0 to 1.0) to change opacity.
       child: FadeTransition(
-        opacity: _controller,
+        opacity: _fadeController,
 
         // The widget that will fade in and out.
         child: Container(
           width: 120,
           height: 120,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             color: Colors.indigo, // fill color
-            borderRadius: BorderRadius.circular(12), // rounded corners
+            borderRadius: BorderRadius.all(Radius.circular(12)), // rounded corners
           ),
         ),
       ),

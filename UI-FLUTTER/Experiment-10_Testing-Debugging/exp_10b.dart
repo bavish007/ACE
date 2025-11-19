@@ -10,11 +10,13 @@ import 'package:flutter/material.dart';
 
 // A stateless widget — means this page does NOT change dynamically
 // It is mainly used for displaying simple UI or debug information.
+/// Simple debug surface that illustrates when builds occur.
 class DebugPage extends StatelessWidget {
   const DebugPage({
     super.key,
   }); // Constructor with an optional key (used internally by Flutter)
 
+  /// Logs build events and instructs the user to observe the console output.
   @override
   Widget build(BuildContext context) {
     debugPrint('[AUTH] Executing: Bavish Reddy Muske - 23AG1A0542');

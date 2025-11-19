@@ -17,10 +17,12 @@ import 'form_validation.dart';
 // -------------------------------------------------------------
 // 1️⃣  This is our main FormPage widget.
 // -------------------------------------------------------------
+/// Demonstrates a simple validated form using custom validators.
 class FormPage extends StatefulWidget {
   const FormPage({super.key});
 
   // The createState() method creates the mutable (changeable) part of the widget.
+  /// Creates the mutable form state that manages validation and controllers.
   @override
   State<FormPage> createState() => _FormPageState();
 }
@@ -31,27 +33,28 @@ class FormPage extends StatefulWidget {
 class _FormPageState extends State<FormPage> {
   // This key helps Flutter uniquely identify our Form widget
   // and access its state (like checking if the form is valid).
-  final _formKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   // These are controllers for each input field.
   // They help us read and control the text that the user types.
-  final _nameCtrl = TextEditingController();
-  final _emailCtrl = TextEditingController();
-  final _ageCtrl = TextEditingController();
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _ageController = TextEditingController();
 
   // dispose() is called automatically when the widget is removed from the screen.
   // We use it to clean up (free memory) by disposing controllers.
   @override
   void dispose() {
-    _nameCtrl.dispose();
-    _emailCtrl.dispose();
-    _ageCtrl.dispose();
+    _nameController.dispose();
+    _emailController.dispose();
+    _ageController.dispose();
     super.dispose();
   }
 
   // -------------------------------------------------------------
   // 3️⃣  The build() method — this creates the visible UI.
   // -------------------------------------------------------------
+  /// Builds the validated form layout with submit and reset actions.
   @override
   Widget build(BuildContext context) {
     debugPrint('[AUTH] Executing: Bavish Reddy Muske - 23AG1A0542');
@@ -65,12 +68,12 @@ class _FormPageState extends State<FormPage> {
         key: _formKey, // Connect this form with our _formKey defined above
         // We use a ListView so the screen can scroll if content overflows
         child: ListView(
-          children: [
+          children: <Widget>[
             // ---------------------------
             // Full Name Input Field
             // ---------------------------
             TextFormField(
-              controller: _nameCtrl, // connect controller to get user text
+              controller: _nameController, // connect controller to get user text
               decoration: const InputDecoration(
                 labelText: 'Full Name', // shows a label inside the box
               ),
@@ -84,7 +87,7 @@ class _FormPageState extends State<FormPage> {
             // Email Input Field
             // ---------------------------
             TextFormField(
-              controller: _emailCtrl,
+              controller: _emailController,
               decoration: const InputDecoration(labelText: 'Email'),
               validator: Validators.email, // use email validator
               keyboardType:
@@ -97,7 +100,7 @@ class _FormPageState extends State<FormPage> {
             // Age Input Field
             // ---------------------------
             TextFormField(
-              controller: _ageCtrl,
+              controller: _ageController,
               decoration: const InputDecoration(labelText: 'Age'),
               validator: Validators.age, // use age validator
               keyboardType: TextInputType.number, // open numeric keyboard
@@ -109,23 +112,28 @@ class _FormPageState extends State<FormPage> {
             // Buttons Row (Submit & Reset)
             // ---------------------------
             Row(
-              children: [
+              children: <Widget>[
                 // ✅ Submit Button
                 ElevatedButton(
                   onPressed: () {
                     // When pressed, we check if the form is valid.
                     // validate() runs all the validators inside FormFields.
                     // It returns true only if all validators return null (no error).
-                    final valid = _formKey.currentState?.validate() ?? false;
+                    final bool isValidForm =
+                        _formKey.currentState?.validate() ?? false;
 
-                    if (valid) {
+                    if (isValidForm) {
+                      debugPrint('Form validation succeeded.');
                       // If the form is valid, we show a small popup message
                       // (called SnackBar) at the bottom of the screen.
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
-                          content: Text('Form submitted: ${_nameCtrl.text}'),
+                          content:
+                              Text('Form submitted: ${_nameController.text}'),
                         ),
                       );
+                    } else {
+                      debugPrint('Form validation failed.');
                     }
                   },
                   child: const Text('Submit'),
@@ -138,9 +146,9 @@ class _FormPageState extends State<FormPage> {
                   onPressed: () {
                     // Reset all validations and clear text fields
                     _formKey.currentState?.reset();
-                    _nameCtrl.clear();
-                    _emailCtrl.clear();
-                    _ageCtrl.clear();
+                    _nameController.clear();
+                    _emailController.clear();
+                    _ageController.clear();
                   },
                   child: const Text('Reset'),
                 ),

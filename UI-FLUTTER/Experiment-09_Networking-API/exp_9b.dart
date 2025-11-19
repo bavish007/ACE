@@ -12,11 +12,13 @@ import 'package:flutter/material.dart';
 import 'fetch_data.dart';
 
 // A stateless widget that displays data fetched from an API
+/// Renders a list of posts retrieved asynchronously from the API layer.
 class ApiPage extends StatelessWidget {
   const ApiPage({
     super.key,
   }); // Constructor with an optional key (for widget identification)
 
+  /// Builds a Future-backed list interface that displays fetched posts.
   @override
   Widget build(BuildContext context) {
     debugPrint('[AUTH] Executing: Bavish Reddy Muske - 23AG1A0542');
@@ -26,7 +28,7 @@ class ApiPage extends StatelessWidget {
       future: fetchPosts(6),
 
       // The builder function runs every time the Future changes its state
-      builder: (context, snapshot) {
+      builder: (BuildContext buildContext, AsyncSnapshot<List<Post>> snapshot) {
         // 1️⃣ While waiting for the data (loading state)
         if (snapshot.connectionState == ConnectionState.waiting) {
           // Show a loading spinner in the center of the screen
@@ -41,7 +43,7 @@ class ApiPage extends StatelessWidget {
               child: Column(
                 mainAxisSize:
                     MainAxisSize.min, // Column takes minimum vertical space
-                children: [
+                children: <Widget>[
                   const Text(
                     'Failed to load posts',
                     style: TextStyle(fontSize: 16),
@@ -54,7 +56,7 @@ class ApiPage extends StatelessWidget {
 
                   // Button to retry fetching data by reloading the widget
                   ElevatedButton(
-                    onPressed: () => (context as Element).reassemble(),
+                    onPressed: () => (buildContext as Element).reassemble(),
                     // 'reassemble()' forces widget tree to rebuild
                     child: const Text('Retry'),
                   ),
@@ -66,32 +68,32 @@ class ApiPage extends StatelessWidget {
         // 3️⃣ When data is successfully fetched
         else {
           // Retrieve the list of posts from snapshot, use empty list if null
-          final posts = snapshot.data ?? [];
+          final List<Post> postList = snapshot.data ?? <Post>[];
 
           // Display the list of posts using ListView.separated for dividers
           return ListView.separated(
-            itemCount: posts.length, // Number of items in the list
+            itemCount: postList.length, // Number of items in the list
             // Adds a divider line between each list item
-            separatorBuilder: (_, __) => const Divider(height: 1),
+            separatorBuilder: (BuildContext _, int __) => const Divider(height: 1),
 
             // Builds each list item (ListTile)
-            itemBuilder: (context, i) {
-              final p = posts[i]; // Get each individual Post object
+            itemBuilder: (BuildContext itemContext, int postIndex) {
+              final Post post = postList[postIndex]; // Get each individual Post object
 
               return ListTile(
                 // Circle avatar showing post ID
-                leading: CircleAvatar(child: Text('${p.id}')),
+                leading: CircleAvatar(child: Text('${post.id}')),
 
                 // Post title (only one line, with ellipsis if too long)
                 title: Text(
-                  p.title,
+                  post.title,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                 ),
 
                 // Post body (two lines, truncated if too long)
                 subtitle: Text(
-                  p.body,
+                  post.body,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                 ),
@@ -99,15 +101,15 @@ class ApiPage extends StatelessWidget {
                 // On tap, open a dialog box showing full details of the post
                 onTap: () {
                   showDialog(
-                    context: context,
-                    builder: (_) => AlertDialog(
-                      title: Text(p.title), // Show post title
+                    context: itemContext,
+                    builder: (BuildContext dialogContext) => AlertDialog(
+                      title: Text(post.title), // Show post title
                       content: SingleChildScrollView(
-                        child: Text(p.body), // Full post content
+                        child: Text(post.body), // Full post content
                       ),
-                      actions: [
+                      actions: <Widget>[
                         TextButton(
-                          onPressed: () => Navigator.of(context).pop(),
+                          onPressed: () => Navigator.of(dialogContext).pop(),
                           child: const Text('Close'),
                         ),
                       ],

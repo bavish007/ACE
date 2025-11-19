@@ -7,21 +7,23 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+/// Demonstrates state management via both setState and Provider patterns.
 class Exp5Page extends StatelessWidget {
   const Exp5Page({super.key});
 
+  /// Builds the dual-counter experience backed by local state and Provider.
   @override
   Widget build(BuildContext context) {
     debugPrint('[AUTH] Executing: Bavish Reddy Muske - 23AG1A0542');
     return ChangeNotifierProvider(
-      create: (_) => CounterModel(),
+      create: (BuildContext providerContext) => CounterModel(),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const Text("Stateful Example with setState:"),
+        children: const <Widget>[
+          Text('Stateful Example with setState:'),
           StatefulCounter(),
-          const Divider(),
-          const Text("Provider Example:"),
+          Divider(),
+          Text('Provider Example:'),
           ConsumerCounter(),
         ],
       ),
@@ -29,48 +31,60 @@ class Exp5Page extends StatelessWidget {
   }
 }
 
+/// Displays a counter powered by local State and setState.
 class StatefulCounter extends StatefulWidget {
+  const StatefulCounter({super.key});
+
+  /// Creates the mutable state that stores the counter value.
   @override
   State<StatefulCounter> createState() => _StatefulCounterState();
 }
 
 class _StatefulCounterState extends State<StatefulCounter> {
-  int count = 0;
+  int _tapCount = 0;
 
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: [
-        Text("Count: $count"),
+      children: <Widget>[
+        Text('Count: $_tapCount'),
         ElevatedButton(
-          onPressed: () => setState(() => count++),
-          child: const Text("Increment"),
+          onPressed: () => setState(() => _tapCount++),
+          child: const Text('Increment'),
         ),
       ],
     );
   }
 }
 
+/// Holds the Provider-backed counter and exposes mutation helpers.
 class CounterModel extends ChangeNotifier {
-  int count = 0;
+  int _count = 0;
+
+  /// Current count value consumed by listening widgets.
+  int get count => _count;
+
+  /// Increments the count and notifies observers.
   void increment() {
-    count++;
+    _count++;
     notifyListeners();
   }
 }
 
+/// Displays the Provider-driven counter and mutation trigger.
 class ConsumerCounter extends StatelessWidget {
   const ConsumerCounter({super.key});
 
+  /// Builds the counter UI bound to the Provider ChangeNotifier.
   @override
   Widget build(BuildContext context) {
-    final counter = context.watch<CounterModel>();
+    final CounterModel counterModel = context.watch<CounterModel>();
     return Column(
-      children: [
-        Text("Count: ${counter.count}"),
+      children: <Widget>[
+        Text('Count: ${counterModel.count}'),
         ElevatedButton(
-          onPressed: counter.increment,
-          child: const Text("Increment"),
+          onPressed: counterModel.increment,
+          child: const Text('Increment'),
         ),
       ],
     );

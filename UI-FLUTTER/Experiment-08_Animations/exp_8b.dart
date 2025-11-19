@@ -14,9 +14,11 @@ import 'package:flutter/material.dart';
 //
 // This widget shows a Flutter logo that slides in from the left
 // and keeps fading in and out (appearing/disappearing repeatedly).
+/// Demonstrates a combined slide and fade animation for the Flutter logo.
 class SlideFadeDemo extends StatefulWidget {
   const SlideFadeDemo({super.key});
 
+  /// Creates state that hosts slide and fade animation controllers.
   @override
   State<SlideFadeDemo> createState() => _SlideFadeDemoState();
 }
@@ -35,6 +37,7 @@ class _SlideFadeDemoState extends State<SlideFadeDemo>
   late final AnimationController _fadeController;
 
   // Called when the widget is first created (before UI appears)
+  /// Initializes both slide and fade controllers and starts animations.
   @override
   void initState() {
     super.initState();
@@ -59,6 +62,7 @@ class _SlideFadeDemoState extends State<SlideFadeDemo>
   }
 
   // Called when widget is removed — must dispose animations to free memory.
+  /// Disposes both controllers to free resources.
   @override
   void dispose() {
     _slideController.dispose();
@@ -69,22 +73,22 @@ class _SlideFadeDemoState extends State<SlideFadeDemo>
   // -------------------------------
   // 🎨 BUILD METHOD (UI)
   // -------------------------------
+  /// Builds the animated logo that slides in and fades continuously.
   @override
   Widget build(BuildContext context) {
     debugPrint('[AUTH] Executing: Bavish Reddy Muske - 23AG1A0542');
     return Center(
       child: SlideTransition(
         // position defines where the widget starts and ends on the screen
-        position:
-            Tween<Offset>(
-              begin: const Offset(-1, 0), // starts from left side (off-screen)
-              end: Offset.zero, // ends at original position (center)
-            ).animate(
-              CurvedAnimation(
-                parent: _slideController, // controlled by slide controller
-                curve: Curves.easeOut, // smooth deceleration motion
-              ),
-            ),
+        position: Tween<Offset>(
+          begin: const Offset(-1, 0), // starts from left side (off-screen)
+          end: Offset.zero, // ends at original position (center)
+        ).animate(
+          CurvedAnimation(
+            parent: _slideController, // controlled by slide controller
+            curve: Curves.easeOut, // smooth deceleration motion
+          ),
+        ),
 
         // Inside the SlideTransition, we also apply FadeTransition
         child: FadeTransition(

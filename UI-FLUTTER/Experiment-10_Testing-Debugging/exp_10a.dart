@@ -10,6 +10,7 @@ import 'package:flutter/material.dart';
 
 // A StatelessWidget — meaning this widget does not store changing state.
 // It's mainly used to show a list of simple test results on the screen.
+/// Displays basic testing output using assertion-backed smoke tests.
 class TestResultsPage extends StatelessWidget {
   const TestResultsPage({
     super.key,
@@ -26,9 +27,10 @@ class TestResultsPage extends StatelessWidget {
   //   Each test adds a string to the 'results' list, and at the end,
   //   that list is displayed on the screen in the build() method.
   // ----------------------------------------------------------
+  /// Runs simple tests and returns human-readable summaries.
   List<String> runTests() {
     // Create an empty list to store test results.
-    final results = <String>[];
+    final List<String> testResults = <String>[];
 
     try {
       // 🧮 Test 1: Simple math assertion
@@ -37,18 +39,19 @@ class TestResultsPage extends StatelessWidget {
       assert(1 + 1 == 2);
 
       // If no error occurs, test passes.
-      results.add('Basic math test: PASS');
-    } catch (_) {
+      testResults.add('Basic math test: PASS');
+    } catch (error) {
       // If the assertion fails, we catch it and mark test as FAIL.
-      results.add('Basic math test: FAIL');
+      debugPrint('Basic math test failed: $error');
+      testResults.add('Basic math test: FAIL');
     }
 
     // 🧱 Test 2: Simple smoke test (checks if widget can be created)
     // This test doesn’t actually test UI — it’s just a placeholder example.
-    results.add('Widget constructor smoke test: PASS');
+    testResults.add('Widget constructor smoke test: PASS');
 
     // Return the list of all results.
-    return results;
+    return testResults;
   }
 
   // ----------------------------------------------------------
@@ -61,17 +64,17 @@ class TestResultsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     debugPrint('[AUTH] Executing: Bavish Reddy Muske - 23AG1A0542');
     // Call the runTests() function and store the returned list of results
-    final r = runTests();
+    final List<String> testResults = runTests();
 
     // Return a ListView to display each test result as a bullet point
     return ListView(
       padding: const EdgeInsets.all(16), // Add padding around the list
-      children: r
+      children: testResults
           .map(
-            (e) => Padding(
+            (String result) => Padding(
               padding: const EdgeInsets.symmetric(vertical: 6),
               child: Text(
-                '• $e',
+                '• $result',
               ), // Display each test message with a bullet symbol
             ),
           )

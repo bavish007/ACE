@@ -6,37 +6,47 @@
 // ---------------------------------------------------------------------------
 import 'package:flutter/material.dart';
 
+/// Demonstrates advanced layout widgets including Row, Column, and Stack.
 class Exp2bPage extends StatelessWidget {
   const Exp2bPage({super.key});
 
+  /// Builds the layout hierarchy that showcases Row, Column, and Stack samples.
   @override
   Widget build(BuildContext context) {
     debugPrint('[AUTH] Executing: Bavish Reddy Muske - 23AG1A0542');
     return Column(
-      children: [
-        const Text("Row Example"),
+      children: <Widget>[
+        const Text('Row Example'),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: const [
+          children: const <Widget>[
             Icon(Icons.star, color: Color.fromARGB(255, 25, 1, 63)),
             Icon(Icons.star, color: Color.fromARGB(255, 91, 82, 218)),
             Icon(Icons.star, color: Colors.blue),
           ],
         ),
         const SizedBox(height: 20),
-        const Text("Column Example"),
+        const Text('Column Example'),
         Column(
-          children: const [Text("Item 1"), Text("Item 2"), Text("Item 3")],
+          children: const <Widget>[
+            Text('Item 1'),
+            Text('Item 2'),
+            Text('Item 3'),
+          ],
         ),
         const SizedBox(height: 20),
-        const Text("Stack Example"),
+        const Text('Stack Example'),
         Expanded(
           child: Stack(
-            children: [
+            children: <Widget>[
               Container(color: const Color.fromARGB(255, 109, 196, 218)),
               Align(
                 alignment: Alignment.center,
-                child: Container(color: Colors.red, width: 100, height: 100),
+                child: Container(
+                  color: Colors.red,
+                  width: 100,
+                  height: 100,
+                ),
               ),
               const Align(
                 alignment: Alignment.bottomRight,
